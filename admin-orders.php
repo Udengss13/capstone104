@@ -97,7 +97,7 @@ require('php/connection.php');
                             <!-- <td><?php echo date("Y-M-d h:i a",strtotime($row['orderdate']))?></td> -->
 
                             <?php if($row['order_status'] == 'confirmed'): ?>
-                            <td>
+                            <td class="text-center">
 
                                 <span
                                     class="badge badge-success bg-success text-white"><?php echo $row['order_status'] ?></span>
@@ -106,7 +106,7 @@ require('php/connection.php');
                             </td>
 
                             <?php elseif($row['order_status'] == 'pickup'): ?>
-                            <td>
+                            <td class="text-center">
                                 <span
                                     class="badge badge-success bg-warning text-white"><?php echo $row['order_status'] ?></span>
                                 <input type="hidden" value="<?php echo $row['order_status'] ?>" name="update_status">
@@ -135,8 +135,8 @@ require('php/connection.php');
 
         <?php else: ?>
         <td class="text-center col-sm-1 col-md-1 col-lg-1 ">
-            <div class="col"><span
-                    class="badge badge-secondary bg-secondary text-dark"><?php echo $row['order_status'] ?></span></div>
+            <div class="col"><span class="badge badge-secondary bg-secondary text-light">For
+                    Verification<?php echo $row['order_status'] ?></span></div>
         </td>
         <?php endif; ?>
 

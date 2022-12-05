@@ -126,8 +126,13 @@ $userresult = mysqli_query($con, $queryimage);
                         <h3 class="text-white  text-center mb-0 name">
                             <?php echo $fetch_user['first_name']. " " .$fetch_user['middle_name'] . " " .$fetch_user['last_name']; ?>
                         </h3>
-                        <h5 class="text-center text-secondary">Pet Owner</h5>
 
+                        <?php if($_SESSION['user_level']=='client'){?>
+                        <h5 class="text-center text-secondary">Pet Owner</h5>
+                        <?php  }?>
+                        <?php if($_SESSION['user_level']=='employee'){?>
+                        <h5 class="text-center text-secondary">Employee</h5>
+                        <?php  }?>
 
                         <center>
                             <a href="user-edit-profile.php?updateid=<?php echo $fetch_user['id'];?>">
@@ -172,103 +177,118 @@ $userresult = mysqli_query($con, $queryimage);
 </div>
 
 <hr>
-<!--ANNOUNCEMENT-->
-<section class="flex-sect" id="imagesec">
-    <div class="container mt-5">
-        <div class="row">
 
-            <?php 
+<section class="flex-sect" id="imagesec">
+    <section id="imagesection" class="div_background_light py-4">
+        <div class="container-fluid px-5 mt-3">
+            <div class="col-lg-12 col-md-12">
+                <div class="justify-content-center row col-md-12 rounded-3">
+
+                    <hr>
+
+                    <!--Pictures-->
+
+                    <?php 
                     $select_pet = mysqli_query($con, "SELECT * FROM pettable WHERE user_id = '$user_id'");
                    
 
                     while($row=$select_pet->fetch_assoc()):
                     ?>
-            <div class="col ">
-                <div class="col-lg-5 profilebg">
-                    <!-- <div class="card mb-4">
-                            <div class="card-body"> -->
-                    <div class="row">
-                        <!-- <div class="col-sm-4 labels"> -->
-                        <img src="asset/profile/pets.png" alt="Logo" style="width:40%; height:17vh" />
-                        <!-- </div> -->
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-4 labels">
-                            <p class="mb-0">Pet Name:</p>
-                        </div>
-                        <div class="col-sm-8">
-                            <p class="c-blue mb-0"><?php echo $row['petname']; ?></p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-4 labels">
-                            <p class="mb-0">Pet Type:</p>
-                        </div>
-                        <div class="col-sm-8">
-                            <p class="c-blue mb-0"><?php echo $row['pettype']; ?></p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-4 labels">
-                            <p class="mb-0">Pet Breed:</p>
-                        </div>
-                        <div class="col-sm-8">
-                            <p class="c-blue mb-0"><?php echo $row['petbreed']; ?></p>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-sm-4 labels">
-                            <p class="mb-0">Pet Sex:</p>
-                        </div>
-                        <div class="col-sm-8">
-                            <p class="c-blue mb-0"><?php echo $row['petsex']; ?></p>
-                        </div>
-                    </div>
-                    <hr>
 
-                    <div class="row">
-                        <div class="col-sm-4 labels">
-                            <p class="mb-0">Pet Birthday:</p>
-                        </div>
-                        <div class="col-sm-8">
-                            <p class="c-blue mb-0"><?php echo $row['petbday']; ?></p>
-                        </div>
+                    <div class="col-lg-4 col-xs-1 col-sm-5 card mx-3 my-4 rounded shadow" style="height:430px;">
 
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <?php $bday = new DateTime($row['petbday']); // Your date of birth
+
+                        <center><img class="mt-4" src="asset/profile/pets.png" alt="Logo" style="width:40%; height:17vh" /></center>
+                        <div class="card-body d-flex flex-column">
+                            <div class="row">
+                                <div class="col-5">
+                                    <h5 class="card-title ">
+                                        Pet Breed:
+                                    </h5>
+                                </div>
+                                <div class="col">
+                                    <?php echo $row['petname']; ?>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <h5 class="card-title">
+                                        Pet Type:
+                                    </h5>
+                                </div>
+                                <div class="col">
+                                    <?php echo $row['pettype']; ?>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <h5 class="card-title ">
+                                        Pet Breed:
+                                    </h5>
+                                </div>
+                                <div class="col">
+                                    <?php echo $row['petbreed']; ?>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <h5 class="card-title ">
+                                        Pet Sex:
+                                    </h5>
+                                </div>
+                                <div class="col">
+                                    <?php echo $row['petsex']; ?>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-5">
+                                    <h5 class="card-title ">
+                                        Pet Birthday:
+                                    </h5>
+                                </div>
+                                <div class="col">
+                                    <?php echo $row['petbday']; ?>
+                                </div>
+                            </div>
+                           
+
+                           
+                            <?php $bday = new DateTime($row['petbday']); // Pet Bday
                             $today = new Datetime(date('y-m-d'));
                             $diff = $today->diff($bday);
                             ?>
-                        <div class="col-sm-4 labels">
-                            <p class="mb-0">Pet Birthday:</p>
-                        </div>
-                        <div class="col-sm-8">
-                            <p class="c-blue mb-0">
+                            <div class="row">
+                                <div class="col-5">
+                                    <h5 class="card-title ">
+                                        Pet age:
+                                    </h5>
+                                </div>
+                                <div class="col">
                                 <?php printf(' %d years, %d month, %d days', $diff->y, $diff->m, $diff->d); ?>
-                            </p>
+                                </div>
+                            </div>
+                            
+
+
+                            <div class="mb-4">
+                                <a href="index-view-image.php?id=<?php echo $rowimage['Image_id'] ?>"
+                                    class=" btn btn-danger w-100">Archive Pet</a>
+                            </div>
+
                         </div>
-                        <!-- <?php
-                            printf(' Pet age : %d years, %d month, %d days', $diff->y, $diff->m, $diff->d);
-                            printf("\n");
-                            ?> -->
-
                     </div>
-                    <hr>
 
-                    <!-- </div>
-                        </div> -->
+                    <?php endwhile; ?>
+
+
                 </div>
-                <?php endwhile; ?>
-
             </div>
         </div>
+
+    </section>
 </section>
+
+
 <!--Footer-->
 <footer class="footer-banner text-center" id="about">
     <h1 class="text-white" style="padding-top:20px;">PetCo. Animal Clinic</h1>
