@@ -454,50 +454,22 @@
     </section>
     <footer class="footer-banner text-center" id="about">
         <h1 class="text-white" style="padding-top:20px;">PetCo. Animal Clinic</h1>
-        <p class="text-white">Get in touch on our products and promos.</p>
-        <div class="container" style="padding-top:20px;">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="form-group mt-2">
-                        <label for="form_email " class="text-white "><span class="text-danger"></span></label>
-                        <input id="form_email" type="email" name="email" class="form-control"
-                            placeholder="Please enter your email *" required="required"
-                            data-error="Valid email is required.">
-
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="form-group mt-1 mb-4">
-                            <label for="form_message" class="text-white "><span class="text-danger"></span></label>
-                            <textarea id="form_message" name="message" class="form-control"
-                                placeholder="Write your message here." rows="4" required="required"
-                                data-error="Please, leave us a message."></textarea>
-                        </div>
-
-                    </div>
-
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <input type="submit" class="btn btn-success btn-send  pt-2 btn-block" name="submit_messsage"
-                                value="Send Message">
-                        </div>
-                    </div>
-                    <div class="col-12 text-center">
-                        <ul class="follow" style="color: white;">
-                            <a href="https://www.facebook.com/PetCoAnimalClinic"><span
-                                    class="fab fa-facebook text-white" style="font-size:30px;padding:10px;"></span></a>
-                            <a href="https://www.instagram.com//"><span class="fab fa-instagram text-white"
-                                    style="font-size:30px;padding:10px;"></span></a>
-                            <a href="https://www.twitter.com/"><span class="fab fa-twitter text-white"
-                                    style="font-size:30px;padding:10px;"></span></a>
-
-
-                        </ul>
-                        <label class="text-white">© 2022 All Rights Reserved. PetCo. Animal Clinic.</label>
-                    </div>
+        <p class="text-white">Please contact us with the social links below.</p>
+        <div class="container" style="padding-top:100px;">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <ul class="follow" style="color: white;">
+                        <a href="https://www.facebook.com/PetCoAnimalClinic"><span class="fab fa-facebook text-white"
+                                style="font-size:30px;padding:10px;"></span></a>
+                        <a href="https://www.instagram.com//"><span class="fab fa-instagram text-white"
+                                style="font-size:30px;padding:10px;"></span></a>
+                        <a href="https://www.twitter.com/"><span class="fab fa-twitter text-white"
+                                style="font-size:30px;padding:10px;"></span></a>
+                    </ul>
+                    <label class="text-white">© 2022 All Rights Reserved. PetCo. Animal Clinic.</label>
                 </div>
             </div>
+        </div>
     </footer>
 
 

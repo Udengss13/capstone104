@@ -179,12 +179,12 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title text-center">
                                 <?php echo $rowimage['Image_title'] ?></h5>
-                            <h6 class="card-text text-center text-muted">
+                            <h6 class="card-text text-center text-truncate">
                                 <?php echo $rowimage['Image_subtitle'] ?>
                             </h6>
                             <!-- <p class="card-text d-inline-block text-truncate">
-                            <?php echo $rowimage['Image_body'];?>
-                        </p> -->
+                                    <?php echo $rowimage['Image_body'];?>
+                                </p> -->
                             <div class="mb-4">
                                 <a href="index-view-image.php?id=<?php echo $rowimage['Image_id'] ?>"
                                     class=" btn btn-success w-100">View Details</a>
@@ -199,6 +199,10 @@
                 </div>
             </div>
         </div>
+        </div>
+        </div>
+        </div>
+
 
     </section>
 </section>
@@ -215,11 +219,11 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <?php echo $service_content; ?>
+                        &emsp;<?php echo $service_content; ?>
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-content text-justify" id="v-pills-tabContent">
                         <?php echo $service_desc; ?>
                     </div>
                 </div>
@@ -271,8 +275,9 @@
                             <img src="asset/profiles/ownerpetco.jpg" class="card-img-top pt-3 img-responsive "
                                 style="height:500px; width:100%;">
                             <center>
-                                <h5>Mr. Karl Ken Sto Domingo
+                                <h5 class="mt-4 text-white">Mr. Karl Ken Sto Domingo
                                 </h5>
+                                <h6 class="text-muted">Owner</h6>
                             </center>
                         </div>
                     </div>
