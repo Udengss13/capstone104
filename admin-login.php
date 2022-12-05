@@ -8,7 +8,7 @@
     <!-- <link rel="stylesheet" href="css/color.css"> -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/emp.css">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -35,12 +35,12 @@
         <div class="collapse navbar-collapse me-3" id="navbarScroll">
             <ul class="navbar-nav me-auto my-0 my-lg-0 " style="--bs-scroll-height: 100px;">
 
-                
-                
+
+
             </ul>
         </div>
     </nav>
-    
+
 
 
     <div class="container mt-5 mb-5">
@@ -48,11 +48,12 @@
             <div class="  mx-auto form login-form">
                 <form action="php/admin-login-process.php" method="post">
 
-                    <h1 class="text-center mt-3">Sign-in</h1>
-                    
-                    <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                    <h1 class="text-center mt-3">ADMIN PANEL</h1>
+
+                    <!--<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
                         <strong>Warning!</strong> This page is for authorized personnel only.
-                    </div>
+                    </div>-->
+
                     <div class="input-group flex-nowrap mt-3">
                         <span class="input-group-text" id="addon-wrapping">Username</span>
                         <input type="text" class="form-control" name="username" placeholder="Username"

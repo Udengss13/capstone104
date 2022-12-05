@@ -199,9 +199,7 @@
                             <th scope="col" style="text-align: center;">
                                 <div class="col">Price</div>
                             </th>
-                            <th scope="col" style="text-align: center;">
-                                <div class="col">Expiration</div>
-                            </th>
+                            
                             <th scope="col" style="text-align: center;">
                                 <div class="col">Product Type</div>
                             </th>
@@ -239,10 +237,7 @@
                         <div class="col">Php
                             <?php echo $rowmenu['Menu_price']; ?></div>
                     </td>
-                    <td class="col-1" style="text-align: center;">
-                        <div class="col">
-                            <?php echo date('F d,Y',strtotime($rowmenu['expiration'])); ?></div>
-                    </td>
+                
 
                     <td class="col-1" style="text-align: center;">
                         <div class="col">
