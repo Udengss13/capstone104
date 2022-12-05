@@ -396,7 +396,7 @@
 <?php   
                 if(!isset($_GET['search']) && !isset($_GET['select_category'])){
                 // $filtervalues = $_GET['search']; 
-                $menu = mysqli_query($con,"SELECT * FROM admin_menu where DATE(expiration)>NOW()"); //You dont need like you do in SQL;
+                $menu = mysqli_query($con,"SELECT * FROM admin_menu"); //You dont need like you do in SQL;
                 // DATE(expiration)>NOW()"
                     if(mysqli_num_rows($menu)>0 ){
                         ?>

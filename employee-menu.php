@@ -146,7 +146,7 @@
                                     </li>
 
                                     <li class="list-group-item">
-                                    <label>Uplaod Image:</label>
+                                    <label>Upload Image:</label>
 
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="upload-news" name="photo"

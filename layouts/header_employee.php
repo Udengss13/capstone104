@@ -147,7 +147,7 @@
                 <?php  }else{ ?>
                 <div class="text-nowrap">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="home.php#imagesec">PET GALLERY</a>
+                        <a class="nav-link text-white" href="gallery.php">PET GALLERY</a>
                     </li>
                 </div>
                 <div class="text-nowrap">

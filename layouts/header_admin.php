@@ -383,6 +383,10 @@
                                         <i class="fs-4   fa fa-briefcase"></i> <span class="">Services</span>
                                     </a>
                                 </li>
+                                <li><a href="admin-gallery.php" class="dropdown-item">
+                                        <i class="fs-4   fa fa-briefcase"></i> <span class="">Pet Gallery</span>
+                                    </a>
+                                </li>
 
 
 
