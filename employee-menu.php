@@ -120,8 +120,7 @@
                                     </li>
                                     <li class="list-group-item">
                                         <label>Product Description:</label>
-                                        <textarea name="paragraph" style="height:100px;" required
-                                            class="col-12"></textarea>
+                                        <textarea id="summernote" class="form-control" name="description"></textarea>
                                     </li>
                                     <li class="list-group-item">
                                         <label>Price:</label>
@@ -146,7 +145,7 @@
                                     </li>
 
                                     <li class="list-group-item">
-                                    <label>Upload Image:</label>
+                                        <label>Uplaod Image:</label>
 
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="upload-news" name="photo"
@@ -201,7 +200,6 @@
                         <th scope="col" style="text-align: center;">
                             <div class="col">Price</div>
                         </th>
-                        
                         <th scope="col" style="text-align: center;">
                             <div class="col">Product Type</div>
                         </th>
@@ -307,8 +305,7 @@
                                     </li>
                                     <li class=" list-group-item">
                                         <label>Menu Description:</label>
-                                        <textarea name="paragraph" id="uparagraph" style="height:100px;" required
-                                            class="col-12"></textarea>
+                                        <textarea id="usummernote" class="form-control" name="udescription"></textarea>
                                     </li>
                                     <li class="list-group-item">
                                         <label>Price:</label>
@@ -481,15 +478,50 @@
 
             });
             </script>
-             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
 
-    <script>
-    $(document).ready(function() {
-        $('#menu').DataTable();
-    });
-    </script>
+            <script>
+            $(document).ready(function() {
+                $('#menu').DataTable();
+            });
+            </script>
+            <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+            <script>
+            $(document).ready(function(index) {
+                $('#summernote').summernote({
+                    height: 400
+                });
+                $(document).on('click', '.delete', function() {
+                    var id = $(this).data('id');
+                    console.log(id);
+                    $.post("employee-menu.php", {
+                        delete_submit: 'delte',
+                        id: id
+                    }, function(data) {
+                        location.reload();
+                    });
+                });
+                $('#usummernote').summernote({
+                    height: 400
+                });
+                $(document).on('click', '.update', function() {
+                    var id = $(this).data('id');
+                    $('input[name="service-id"]').val(id);
+                    $.post("service_data.php", {
+                        id: id
+                    }, function(data) {
+                        var new_data = JSON.parse(data);
+                        $('input[name="uname"]').val(new_data['service_name']);
+                        // $('textarea[name="udescription"]').val(new_data['description']);
+
+                        $("#usummernote").summernote("code", new_data['description']);
+                    });
+                    $('#update-modal').modal('show');
+                });
+            });
+            </script>
             </body>
 
             </html>

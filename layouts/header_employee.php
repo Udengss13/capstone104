@@ -66,8 +66,10 @@
     <link rel="stylesheet" href="css/emp.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/f8f3c8a43b.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    
     <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
 
