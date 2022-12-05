@@ -124,7 +124,7 @@ $userresult = mysqli_query($con, $queryimage);
                     <button type="button" class="btn bg-button mb-3"
                         style="background: #EA6D52; border-radius: 15px; border-width: 7px;" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">
-                        <i class="float-end fa-solid fa-circle-plus"> </i> Appointment
+                        <i class="fa-solid fa-circle-plus"></i> Appointment
                     </button>
                 </div>
                 <br>
