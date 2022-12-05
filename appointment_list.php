@@ -20,13 +20,13 @@
 
 
       <!-- ====================================================================================================== -->
-      <div class="container pt-5">
+      <div class="container-xl-fluid pt-5 m-4">
             
             <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header row">
-                                <div class="col-md-6">
+                    <div class="col-md-6  rounded">
+                        <div class="card shadow">
+                            <div class="card-header">
+                                <div class="col-md-">
                                   Appointment List
                                 </div>
                                 <div class="col-md-6" align="right">
@@ -45,7 +45,7 @@
                                 <div class="tab-content" id="nav-tabContent">
                                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                         <div class="table-responsive mt-4">
-                                            <table class="table table-hover table-bordered" width="100%">
+                                            <table id="pending" class="table table-hover table-bordered" width="100%">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
@@ -71,7 +71,7 @@
                                                         <td><?php echo $row_pending['customer_name']; ?></td>
                                                         <td><?php echo $row_pending['petname']; ?></td>
                                                         <td><?php echo $row_pending['service']; ?></td>
-                                                        <td>
+                                                        <td class="col-2">
                                                             <a class="btn btn-sm btn-info approved" data-id="<?php echo $row_pending['id']; ?>"><span class="fa fa-thumbs-o-up" data-bs-toggle="tooltip" data-bs-placement="bottom" title="approve"></span></a> 
                                                             <a class="btn btn-sm btn-danger cancel" data-id="<?php echo $row_pending['id']; ?>"><span class="fs-5 fa fa-times" data-bs-toggle="tooltip" data-bs-placement="bottom" title="cancel"></span></a>
                                                         </td>
@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                         <div class="table-responsive mt-4">
-                                            <table class="table table-hover table-bordered" width="100%">
+                                            <table id="approve" class="table table-hover table-bordered" width="100%">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
@@ -118,8 +118,8 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                        <div class="table-responsive mt-4">
-                                            <table class="table table-hover table-bordered" width="100%">
+                                        <!-- <div class="table-responsive mt-4"> -->
+                                            <table id="serve" class="table table-hover table-bordered" width="100%">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
@@ -147,11 +147,11 @@
                                                     </tr>
                                                 <?php } ?>
                                             </table>
-                                        </div>
+                                        <!-- </div> -->
                                     </div>
                                     <div class="tab-pane fade" id="cancelled-contact" role="tabpanel" aria-labelledby="cancelled-contact-tab">
                                         <div class="table-responsive mt-4">
-                                            <table class="table table-hover table-bordered" width="100%">
+                                            <table id="cancel" class="table table-hover table-bordered" width="100%">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
@@ -186,7 +186,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                    <div class="card">
+                    <div class="card shadow">
                 <div class="card-body">
                 <div id='calendar'></div>
                 </div>
@@ -367,6 +367,32 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl)
 })
 </script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+
+        <script>
+        $(document).ready(function() {
+            $('#pending').DataTable();
+        });
+        </script>
+        <script>
+        $(document).ready(function() {
+            $('#approve').DataTable();
+        });
+        </script>
+        <script>
+        $(document).ready(function() {
+            $('#serve').DataTable();
+        });
+        </script>
+        <script>
+        $(document).ready(function() {
+            $('#cancel').DataTable();
+        });
+        </script>
+        </body>
 
 </body>
 
