@@ -182,21 +182,21 @@
                             <ul class="list-group list-group-flush">
                                 <!--Title-->
                                 <li class="list-group-item">
-                                    <label>Header Name:</label>
+                                    <label>Subtitle:</label>
                                     <input name="contentimageid" class="col-12" type="text" hidden>
                                     <input name="title" class="col-12" id="utitle" type="text" required>
                                 </li>
                                 <!--Subtitle-->
-                                <li class=" list-group-item">
+                                <!-- <li class=" list-group-item">
                                     <label>Subtitle:</label>
                                     <input name="subtitle" class="col-12" id="usubtitle" type="text" required>
-                                </li>
+                                </li> -->
                                 <!--Body-->
-                                <li class="list-group-item">
+                                <!-- <li class="list-group-item">
                                     <div> <label>Body:</label></div>
                                     <textarea name="paragraph" id="uparagraph" style="height:150px;" required
                                         class="col-12"></textarea>
-                                </li>
+                                </li> -->
                                 <!--Choose File-->
                                 <li class="list-group-item">
                                     <input name="photo" class="" id="upload-news" type="file" required>
