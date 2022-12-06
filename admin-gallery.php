@@ -134,7 +134,7 @@
             <tr>
 
                 <td class="col-2">
-                    <img src=" asset/homepage/<?php echo $rowimage['Image_filename']; ?> "
+                    <img src=" asset/gallery/<?php echo $rowimage['Image_filename']; ?> "
                         class="zoom img-thumbnail img-responsive images_menu" width="70%">
                 </td>
 
