@@ -211,7 +211,7 @@
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    $.post("employee-appointment.php", {
+                    $.post("admin-appointment.php", {
                         id: id,
                         delete_btn: "delete"
                     }, function() {
