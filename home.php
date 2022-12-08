@@ -135,7 +135,7 @@
 
                     </div>
                     <div class="col-md-8">
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <ul class="nav nav-pills mb-3 text-dark" id="pills-tab" role="tablist">
                             <?php echo $tab_content; ?>
                         </ul>
                     </div>

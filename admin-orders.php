@@ -74,7 +74,7 @@ require('php/connection.php');
                             <th>Email</th>
                             <th>Address</th>
                             <th>Contact</th>
-                            <!-- <th>Order Date/time</th> -->
+                            <th>Order Date/time</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -82,7 +82,7 @@ require('php/connection.php');
                     <tbody>
                         <?php 
                                       $i = 1;
-                                      $order_query = mysqli_query($con, "SELECT * FROM `order` ORDER BY `order`.`id` DESC " );
+                                      $order_query = mysqli_query($con, "SELECT * FROM `order` ORDER BY `order`.`orderdate` ASC " );
                                       
                                       if(mysqli_num_rows($order_query) > 0){
                                         while($row = mysqli_fetch_assoc($order_query)){    
@@ -94,7 +94,7 @@ require('php/connection.php');
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['address'] ?></td>
                             <td><?php echo $row['contact'] ?></td>
-                            <!-- <td><?php echo date("Y-M-d h:i a",strtotime($row['orderdate']))?></td> -->
+                            <td><?php echo date("Y-M-d h:i a",strtotime($row['orderdate']))?></td>
 
                             <?php if($row['order_status'] == 'confirmed'): ?>
                             <td class="text-center">

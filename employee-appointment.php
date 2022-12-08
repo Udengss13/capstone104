@@ -55,7 +55,7 @@
                                             </tr>
                                         </thead>
                                         <?php 
-                                            $querymenu = "SELECT * FROM available_appointment"; 
+                                            $querymenu = "SELECT * FROM available_appointment where employee_id=$user_id" ; 
                                             $resultmenu = mysqli_query($con, $querymenu);  
                                             while($rowmenu =  mysqli_fetch_array($resultmenu)){
 

@@ -3,9 +3,8 @@
     session_start();
     if(isset($_POST['news'])){
         $title = $_POST['title'];
-        $paragraph = $_POST['paragraph'];
-        $paragraph = nl2br($paragraph);
-       
+        $paragraph = $_POST['description'];
+        $paragraph = nl2br($paragraph);      
         $safe_input = mysqli_real_escape_string($db_admin_account,$paragraph);
 
         $subinfo = $_POST['subinfo'];

@@ -1,3 +1,8 @@
+<?php
+  require('php/connection.php');
+  require_once "controllerUserData.php"; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +51,7 @@
     <div class="container mt-5 mb-5">
         <div class="row">
             <div class="  mx-auto form login-form">
-                <form action="php/admin-login-process.php" method="post">
+                <form action=" " method="post">
 
                     <h1 class="text-center mt-3">ADMIN PANEL</h1>
 

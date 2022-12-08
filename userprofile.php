@@ -189,7 +189,7 @@ $userresult = mysqli_query($con, $queryimage);
                     <!--Pictures-->
 
                     <?php 
-                    $select_pet = mysqli_query($con, "SELECT * FROM pettable WHERE user_id = '$user_id'");
+                    $select_pet = mysqli_query($con, "SELECT * FROM pettable WHERE user_id = '$user_id' and archive_status=' ' ");
                    
 
                     while($row=$select_pet->fetch_assoc()):
@@ -198,12 +198,13 @@ $userresult = mysqli_query($con, $queryimage);
                     <div class="col-lg-4 col-xs-1 col-sm-5 card mx-3 my-4 rounded shadow" style="height:430px;">
 
 
-                        <center><img class="mt-4" src="asset/profile/pets.png" alt="Logo" style="width:40%; height:17vh" /></center>
+                        <center><img class="mt-4" src="asset/profile/pets.png" alt="Logo"
+                                style="width:40%; height:17vh" /></center>
                         <div class="card-body d-flex flex-column">
                             <div class="row">
                                 <div class="col-5">
                                     <h5 class="card-title ">
-                                        Pet Breed:
+                                        Pet Name:
                                     </h5>
                                 </div>
                                 <div class="col">
@@ -250,9 +251,9 @@ $userresult = mysqli_query($con, $queryimage);
                                     <?php echo $row['petbday']; ?>
                                 </div>
                             </div>
-                           
 
-                           
+
+
                             <?php $bday = new DateTime($row['petbday']); // Pet Bday
                             $today = new Datetime(date('y-m-d'));
                             $diff = $today->diff($bday);
@@ -264,15 +265,23 @@ $userresult = mysqli_query($con, $queryimage);
                                     </h5>
                                 </div>
                                 <div class="col">
-                                <?php printf(' %d years, %d month, %d days', $diff->y, $diff->m, $diff->d); ?>
+                                    <?php printf(' %d years, %d month, %d days', $diff->y, $diff->m, $diff->d); ?>
                                 </div>
                             </div>
-                            
+
 
 
                             <div class="mb-4">
-                                <a href="index-view-image.php?id=<?php echo $rowimage['Image_id'] ?>"
-                                    class=" btn btn-danger w-100">Archive Pet</a>
+                            <!-- <button class="btn bg-info border border-dark " type="submit" name="archive">Archive Pet</a></button> -->
+                            <a href="pet_update.php?updatepetid=<?php echo $row['pet_id'];?>">
+                                <span class="btn btn-danger bg-button mx-2 mt-2 mb-5 text-white">Update Pet Status <i
+                                        class="fa-solid fa-pen-to-square "></i></span>
+                            </a>
+                                <!-- <a href="pet_update.php?updateid=<?php echo $rowimage['Image_id'] ?>"
+                                    class=" btn btn-danger w-100">Update Pet Status</a> -->
+
+                                <!-- <a href="index-view-image.php?id=<?php echo $rowimage['Image_id'] ?>"
+                                    class=" btn btn-danger w-100">Archive Pet</a> -->
                             </div>
 
                         </div>
@@ -309,6 +318,22 @@ $userresult = mysqli_query($con, $queryimage);
         </div>
     </div>
 </footer>
+
+<?php
+    if(isset($_POST['archive'])){
+        $update_status = $_POST['update_status'];
+        $update_status_id = $_POST['update_status_id'];
+        $update_status = 1;
+        
+        $update_status_query = mysqli_query($con, "UPDATE `order` SET `order_status` = 'pickedup' WHERE `order`.`id` = ".$_GET['id']);
+        
+    
+       if($update_status_query){
+        header('location: admin-view-orders.php?id='.$_GET['id']);
+        //  header('location: admin-orders.php');
+       }
+      }
+    ?>
 
 <script>
 $(document).ready(function() {

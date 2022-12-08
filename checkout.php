@@ -319,6 +319,9 @@
     $address = $_POST['address'];
     $paymentmethod = $_POST['paymentmethod'];
 
+    date_default_timezone_set('Asia/Manila');
+    $datetime = date("Y-m-d H:i:s");
+
     $cart_query = mysqli_query($con, "SELECT * FROM `cart` WHERE Cart_user_id = '$user_id'");
     $totalofprice=0;
     $price_total = 0;
@@ -339,8 +342,8 @@
   
     
      // $total_product = implode(', ',$product_name);
-        $insertOrder = mysqli_query($con, "INSERT INTO  `order` (order_user_id, first_name,  last_name, contact, email, address, payment_method)
-                                                        VALUES ('$user_id' , '$fname',  '$lname', '$contact', '$email', '$address', '$paymentmethod')") or die('Query failed!'); // '$paymentmethod', '$product_name', '$quantity', '$price', '$price_total'
+        $insertOrder = mysqli_query($con, "INSERT INTO  `order` (order_user_id, first_name,  last_name, contact, email, address, payment_method, orderdate)
+                                                        VALUES ('$user_id' , '$fname',  '$lname', '$contact', '$email', '$address', '$paymentmethod','$datetime')") or die('Query failed!'); // '$paymentmethod', '$product_name', '$quantity', '$price', '$price_total'
  
 // SELECT * FROM order WHERE order_user_id = 120
         if($insertOrder){

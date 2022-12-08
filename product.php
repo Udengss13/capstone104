@@ -428,6 +428,9 @@
                             <h6 class="card-text  text-dark mt-2 text-center">
                                 Php <?php echo $fetch_product['Menu_price']?>.00
                             </h6>
+                            <p class="card-text  text-dark mt-2 text-center">
+                                Available <?php echo $fetch_product['stock_in']?>
+                            </p>
                         </div>
                         <div class="col">
                             <input type="submit" name="add_to_cart" value="Add to Cart"

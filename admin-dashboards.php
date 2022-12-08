@@ -3,6 +3,8 @@
     require('php/connection.php');
     require('layouts/header_admin.php');
 
+   
+
     
     $queryimage = "SELECT * FROM admin_quicktips"; //You don't need a like you do in SQL;
     $resultimage = mysqli_query($db_admin_account, $queryimage);
@@ -194,7 +196,7 @@
                                     $querymenu = "SELECT s.id,s.expiration,a.Menu_name,s.alert_expire,s.settled FROM stock_management s 
                                                     LEFT JOIN admin_menu a
                                                     ON a.Menu_id = s.product_id
-                                                    WHERE DATE(s.alert_expire)<NOW() AND s.settled=0"; 
+                                                    WHERE DATE(s.expiration)<NOW() AND s.settled=0"; 
                                     $resultmenu = mysqli_query($con, $querymenu);  
                                 ?>
                     <button type="button" class="btn btn-primary mb-3"

@@ -1,14 +1,16 @@
 <?php
     require_once "php/user-list-process.php";
     require('php/connection.php');
-    // require_once "php/admin-login-process.php"; 
+    require_once "controllerUserData.php"; 
 
     // if(isset($_SESSION['admin_id'])){
         // $admin_id = $_SESSION['admin_id'];
         // }
-        
+
+        // $admin_id = $_SESSION['id'];
+       
         // if(!isset($admin_id)){
-        //  header('location: admin-login.php');
+        //     echo $admin_id;
         // }
     
 
@@ -330,8 +332,9 @@
                         ?>
                         <li>
                             <a href="admin-message.php" class="nav-link px-sm-0 px-1">
-                                <i class="fs-4 fa-regular fa-message text-white"></i><span class="ms-1 d-none d-sm-inline">
-                               
+                                <i class="fs-4 fa-regular fa-message text-white"></i><span
+                                    class="ms-1 d-none d-sm-inline">
+
                                     Messages
                                     <?php if($count_message>0){ ?><span
                                         class="badge badge-danger text-white bg-danger"><?php echo $count_message; ?></span><?php } ?></span>
@@ -341,24 +344,39 @@
                         <li>
 
 
+                            <a class="nav-link px-sm-0 px-1" href="admin-appointment.php"><i
+                                    class="fs-4 fa-regular fa-user text-white"></i><span
+                                    class="ms-1 d-none d-sm-inline">Add Appointment</a>
+                            <!-- <i class="fa-regular fa-user"></i> -->
+
+                        </li>
+                        <li>
+
+
                             <a class="nav-link px-sm-0 px-1" href="admin-user-accounts.php"><i
-                                    class="fs-4 fa-regular fa-user text-white"></i><span class="ms-1 d-none d-sm-inline">User Accounts</a>
-                                    <!-- <i class="fa-regular fa-user"></i> -->
+                                    class="fs-4 fa-regular fa-user text-white"></i><span
+                                    class="ms-1 d-none d-sm-inline">User Accounts</a>
+                            <!-- <i class="fa-regular fa-user"></i> -->
 
                         </li>
                         <!-- <li class="nav-item">
                             <a href="#" class="nav-link px-sm-0 px-2">
                                 <i class="fs-4 bi-table"></i><span class="ms-1 d-none d-sm-inline">Sales</span></a>
                         </li> -->
-                        <li class="dropdown mb-2">
-                            <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown"
+                        <li>
+                            <a class="nav-link px-sm-0 px-1" href="archive-pet.php"><i
+                                    class="fs-4 fa-regular fa-rectangle-list"></i><span class="ms-1 d-none d-sm-inline">Pet
+                                    Archive</a>
+
+
+                            <!-- <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fs-4 bi-archive"></i><span class="ms-1 d-none d-sm-inline">Archives</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
                                 <li><a class="dropdown-item" href="#">Pet</a></li>
                                 <li><a class="dropdown-item" href="archive-user.php">Owners</a></li>
-                            </ul>
+                            </ul> -->
                         </li>
 
                         <li class="nav-item mb-2">
@@ -407,7 +425,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="admin-login.php">Sign out</a></li>
+                            <li><a class="dropdown-item" href="logoutadmin.php">Sign out</a></li>
                         </ul>
                     </div>
                 </div>
