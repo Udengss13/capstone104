@@ -348,7 +348,8 @@
 
 
                             <a class="nav-link px-sm-0 px-1" href="admin-appointment.php"><i
-                                    class="fs-4 fa-regular fa-calendar-check"></i><span class="ms-1 d-none d-sm-inline"> Add
+                                    class="fs-4 fa-regular fa-calendar-check"></i><span class="ms-1 d-none d-sm-inline">
+                                    Add
                                     Appointment</a>
                             <!-- <i class="fa-regular fa-user"></i> -->
 
@@ -368,8 +369,8 @@
                         </li> -->
                         <li>
                             <a class="nav-link px-sm-0 px-1" href="archive-pet.php"><i
-                                    class="fs-4 fa-regular fa-rectangle-list"></i><span
-                                    class="ms-1 d-none d-sm-inline"> Pet
+                                    class="fs-4 fa-regular fa-rectangle-list"></i><span class="ms-1 d-none d-sm-inline">
+                                    Pet
                                     Archive</a>
 
 
@@ -391,8 +392,8 @@
                         <li class="dropdown mb-2">
                             <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fs-4 bi-pencil-square"></i><span
-                                    class="ms-1 d-none d-sm-inline"> Content</span>
+                                <i class="fs-4 bi-pencil-square"></i><span class="ms-1 d-none d-sm-inline">
+                                    Content</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
                                 <li><a class="dropdown-item" href="admin-slider.php"><i
@@ -417,16 +418,23 @@
                         </li>
                         <li class="nav-item mb-2">
                             <a href="admin-category-list.php" class="nav-link px-sm-0 px-1">
-                            <i class="fs-4 fa-solid fa-list-ul"></i><span class="ms-1 d-none d-sm-inline"> Product
+                                <i class="fs-4 fa-solid fa-list-ul"></i><span class="ms-1 d-none d-sm-inline"> Product
                                     Category</span>
                             </a>
                         </li>
                     </ul>
+                    <?php 
+                            $select_user = mysqli_query($con, "SELECT * FROM admin_login WHERE id = '$admin_id'");
+                            if(mysqli_num_rows($select_user) > 0){
+                            $fetch_user = mysqli_fetch_assoc($select_user); 
+                            };
+                        ?>
                     <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="asset/cha.jpg" alt="Admin" width="28" height="28" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">Cha</span>
+                            <img src="asset/profiles/<?php echo $fetch_user['image_filename']?>" alt="user" width="28" height="28"
+                                class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1"><?php $fetch_user['first_name']?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                             <!-- <li><a class="dropdown-item" href="#">New project...</a></li>

@@ -1,5 +1,8 @@
-<?php require_once "controlleradmin.php";  
- require('layouts/header_admin.php');
+<?php 
+
+require('layouts/header_admin.php');
+require_once "php/user-list-process.php";
+require('php/connection.php');
 
 
 
