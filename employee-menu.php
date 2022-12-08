@@ -7,10 +7,10 @@
  
    //call all Category
   $querycategory = "SELECT * FROM admin_category"; //You don't need a ; like you do in SQL
-  $resultcategory = mysqli_query($db_admin_account, $querycategory);
+  $resultcategory = mysqli_query($con, $querycategory);
 
   $querycategory = "SELECT * FROM admin_category"; //You don't need a ; like you do in SQL
-  $resultcategorys = mysqli_query($db_admin_account, $querycategory);
+  $resultcategorys = mysqli_query($con, $querycategory);
 
   if(isset($_POST['addStock'])){
     $qty = $_POST['qty'];
@@ -259,7 +259,7 @@
                                     <i class="fa fa-plus" style="font-size:25px; padding: 10px"></i>
                                 </a>
                                 <a href="php/menu-process.php?id=<?php echo $rowmenu['Menu_id'];?>">
-                                    <i class="fa-solid fa-trash-can" style="font-size:25px; color:red; padding: 10px"
+                                    <i class="fa-solid fa fa-archive" style="font-size:25px; color:red; padding: 10px"
                                         onclick="return confirm('Are you sure you want to delete this product?')"></i>
                                 </a>
                                 <a class="text-decoration-none text-info list-stock"
@@ -371,7 +371,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-info" form="add-stock-form" name="addStock">Submit
+                            <button type="submit" class="btn btn-success" form="add-stock-form" name="addStock">Submit
                                 Stocks</button>
                         </div>
                     </div>
@@ -393,7 +393,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" form="deduct-stock-form" class="btn btn-info"
+                            <button type="submit" form="deduct-stock-form" class="btn btn-danger"
                                 name="deductStock">Deduct Stocks</button>
                         </div>
                     </div>

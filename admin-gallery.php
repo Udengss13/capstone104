@@ -6,7 +6,7 @@
 
     
     $queryimage = "SELECT * FROM admin_gallery"; //You don't need a like you do in SQL;
-    $resultimage = mysqli_query($db_admin_account, $queryimage);
+    $resultimage = mysqli_query($con, $queryimage);
     
 ?>
 
@@ -123,9 +123,9 @@
     <table id="example" class="table table-striped table table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Image</th>
-                <th>Subtitle</th>
-                <th>Action</th>
+                <th style="text-align: center;">Image</th>
+                <th style="text-align: center;">Subtitle</th>
+                <th style="text-align: center;">Action</th>
 
             </tr>
         </thead>
@@ -133,16 +133,16 @@
             <?php while($rowimage =  mysqli_fetch_array($resultimage)){ ?>
             <tr>
 
-                <td class="col-2">
+                <td class="col-2" style="text-align: center;">
                     <img src=" asset/gallery/<?php echo $rowimage['Image_filename']; ?> "
                         class="zoom img-thumbnail img-responsive images_menu" width="70%">
                 </td>
 
-                <td>
+                <td style="text-align: center;">
                     <?php echo $rowimage['Image_subtitle']; ?>
                 </td>
                 
-                <td>
+                <td style="text-align: center;">
                     <a class="update" data-id="<?php echo $rowimage['Image_id'];?>">
                         <i class="fa-solid fa-pen" style="font-size:25px; padding: 10px"></i>
 
@@ -163,7 +163,7 @@
 
 
 
-        <!--Modal for Updating the announcements -->
+        <!--Modal for Updating the Image -->
 
 
         <div id="update-modal" class="modal fade" data-bs-backdrop="static" role="dialog">
@@ -172,7 +172,7 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Update Announcements</h4>
+                        <h4 class="modal-title">Update Image</h4>
                     </div>
                     <div class="modal-body">
                         <form action="php/gallery-image-edit-process.php" id="update-form" method="post"

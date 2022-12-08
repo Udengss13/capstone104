@@ -121,40 +121,7 @@
                             href="index.php">HOME</a>
                     </li>
                 </div>
-                <div class="text-nowrap">
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <a class="nav-link text-white dropdown-toggle" href="#" id="dropdownMenuLink"
-                                data-bs-toggle="dropdown" aria-expanded="false">SERVICES</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Vaccination</a></li>
-                                <li><a class="dropdown-item" href="#">Confinement</a></li>
-                                <li><a class="dropdown-item" href="#">Pet Supplies</a></li>
-                                <li><a class="dropdown-item" href="#">Consultation</a></li>
-                                <li><a class="dropdown-item" href="#">Surgery</a></li>
-                                <li><a class="dropdown-item" href="#">Treatment</a></li>
-                                <li><a class="dropdown-item" href="#">Deworming</a></li>
-                                <li><a class="dropdown-item" href="#">Grooming</a></li>
-                                <li><a class="dropdown-item" href="#">Laboratory Tests</a></li>
-
-                            </ul>
-
-                        </div>
-                    </li>
-                </div>
-
-                <div class="text-nowrap">
-                    <li class="nav-item">
-
-                        <a class="nav-link text-white" href="#imagesec">PET GALLERY</a>
-
-                    </li>
-                </div>
-                <div class="text-nowrap">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#about">ABOUT US</a>
-                    </li>
-                </div>
+              
 
 
 
@@ -329,7 +296,7 @@
                             please,
                             provide all
                             the information about your pets that are
-                            need below.</p>
+                            needed below.</p>
                     </div>
                 </div>
                 <button type="button" name="add" id="add" class="btn btn-success">Add More Pets</button>
@@ -418,7 +385,7 @@
                         name="signup" value="Sign up">
                 </div>
                 <div class="link login-link text-center text-white">Already have an account? <a href="index.php"
-                        class="text-primary">Login here</a></div>
+                        class="text-primary">Sign In here</a></div>
         </form>
 
     </div>

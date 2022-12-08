@@ -4,7 +4,7 @@
         $id = $_GET['id'];
         //call all news and announcement
         $queryimage = "SELECT * FROM admin_content_homepage WHERE Image_id = $id"; //You don't need a ; like you do in SQL
-        $resultimage = mysqli_query($db_admin_account, $queryimage);
+        $resultimage = mysqli_query($con, $queryimage);
         
 
 ?>
@@ -63,27 +63,7 @@
                             href="index.php">HOME</a>
                     </li>
                 </div>
-                <div class="text-nowrap">
-                    <li class="nav-item">
-                        <div class="dropdown">
-                            <a class="nav-link text-white dropdown-toggle" href="#" id="dropdownMenuLink"
-                                data-bs-toggle="dropdown" aria-expanded="false">SERVICES</a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Vaccination</a></li>
-                                <li><a class="dropdown-item" href="#">Confinement</a></li>
-                                <li><a class="dropdown-item" href="#">Pet Supplies</a></li>
-                                <li><a class="dropdown-item" href="#">Consultation</a></li>
-                                <li><a class="dropdown-item" href="#">Surgery</a></li>
-                                <li><a class="dropdown-item" href="#">Treatment</a></li>
-                                <li><a class="dropdown-item" href="#">Deworming</a></li>
-                                <li><a class="dropdown-item" href="#">Grooming</a></li>
-                                <li><a class="dropdown-item" href="#">Laboratory Tests</a></li>
 
-                            </ul>
-
-                        </div>
-                    </li>
-                </div>
 
                 <div class="text-nowrap">
                     <li class="nav-item">

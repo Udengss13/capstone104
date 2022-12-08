@@ -4,14 +4,14 @@
   
   $start_from = 0; 
   $queryimage = "SELECT * FROM admin_gallery ORDER BY `admin_gallery`.`Image_id` DESC"; //You dont need like you do in SQL;
-  $resultimage = mysqli_query($db_admin_account, $queryimage);
+  $resultimage = mysqli_query($con, $queryimage);
 
-  $result = $db_admin_account->query("SELECT image_path from admin_carousel_homepage");
+  $result = $con->query("SELECT image_path from admin_carousel_homepage");
   ?>
 
 <?php
   $quicktipsquery = "SELECT * FROM admin_gallery"; //You dont need like you do in SQL;
-  $quicktipsresult = mysqli_query($db_admin_account, $quicktipsquery);
+  $quicktipsresult = mysqli_query($con, $quicktipsquery);
 
   
   ?>
@@ -171,34 +171,7 @@
     <footer class="footer-banner text-center" id="about">
         <h1 class="text-white" style="padding-top:20px;">PetCo. Animal Clinic</h1>
         <p class="text-white">Get in touch on our products and promos.</p>
-        <div class="container" style="padding-top:20px;">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="form-group mt-2">
-                        <label for="form_email " class="text-white "><span class="text-danger"></span></label>
-                        <input id="form_email" type="email" name="email" class="form-control"
-                            placeholder="Please enter your email *" required="required"
-                            data-error="Valid email is required.">
-
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <div class="form-group mt-1 mb-4">
-                            <label for="form_message" class="text-white "><span class="text-danger"></span></label>
-                            <textarea id="form_message" name="message" class="form-control"
-                                placeholder="Write your message here." rows="4" required="required"
-                                data-error="Please, leave us a message."></textarea>
-                        </div>
-
-                    </div>
-
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <input type="submit" class="btn btn-success btn-send  pt-2 btn-block" name="submit_messsage"
-                                value="Send Message">
-                        </div>
-                    </div>
+       
                     <div class="col-12 text-center">
                         <ul class="follow" style="color: white;">
                             <a href="https://www.facebook.com/PetCoAnimalClinic"><span

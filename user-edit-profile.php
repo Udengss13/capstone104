@@ -21,7 +21,7 @@
   
     
     $queryimage = "SELECT * FROM admin_content_homepage"; //You don't need a like you do in SQL;
-    $resultimage = mysqli_query($db_admin_account, $queryimage);
+    $resultimage = mysqli_query($con, $queryimage);
 
 
     if (isset($_GET['updateid'])){

@@ -67,7 +67,7 @@ require_once "controllerAdmin.php";
 <!---End of Aside-->
 <div class="col-md-9 col-xl-10 py-3">
     <div class="mt-4 rounded mb-5 ">
-        <h4 class="c-white rounded-top py-2" style="text-align:center;">- User Information -</h4>
+        <h4 class="c-white rounded-top py-2" style="text-align:center;"> User Information </h4>
     
         <div class="col-2 float-end mb-4">
             <div class="dropdown  ms-auto ms-sm-0 flex-shrink-1 "
@@ -75,7 +75,7 @@ require_once "controllerAdmin.php";
 
                 <a href="#" class="d-flex align-items-center text-decoration-none text-dark dropdown-toggle btn"
                     id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-circle-plus text-dark"></i> <span class="text-light"> Add User </span>
+                    <i class="fa-solid fa-circle-plus"></i> <span class="text-light"> Add User </span>
                     
                 </a>
 

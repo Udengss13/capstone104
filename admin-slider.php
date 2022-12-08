@@ -4,7 +4,7 @@ require('layouts/header_admin.php');
     
 
 $queryimage = "SELECT * FROM admin_carousel_homepage"; //You don't need a like you do in SQL;
-$resultimage = mysqli_query($db_admin_account, $queryimage);
+$resultimage = mysqli_query($con, $queryimage);
 
 $msg='';
 if(isset($_POST['upload'])){
@@ -22,7 +22,7 @@ if(isset($_POST['upload'])){
   }
 }
 
-$result = $db_admin_account->query("SELECT image_path from admin_carousel_homepage");
+$result = $con->query("SELECT image_path from admin_carousel_homepage");
 
 ?>
 
@@ -94,15 +94,15 @@ $result = $db_admin_account->query("SELECT image_path from admin_carousel_homepa
         </div> -->
 
         <div class="row justify-content-center">
-            <div class="col-lg-4 bg-dark rounded px-4">
-                <h4 class="text-center text-light p-1">Choose Image to Upload</h4>
+            <div class="col-lg-4 bg-dark rounded px-5 mt-5">
+                <h4 class="text-center text-light p-2">Choose Image to Upload</h4>
 
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <input type="file" name="image" class="form-control p-1 mb-3" required>
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="upload" class="btn btn-warning btn-block  mb-3" value="Upload Image">
+                        <input type="submit" name="upload" class="btn btn-success btn-block  mb-3" value="Upload Image">
                     </div>
                     <div class="form-group">
                         <h5 class="text-center text-light"><?=$msg; ?></h5>
@@ -119,8 +119,8 @@ $result = $db_admin_account->query("SELECT image_path from admin_carousel_homepa
             <table class=" table table-striped table table-bordered">
                 <thead class="table-dark c-white">
                     <!-- <th>Image ID</th> -->
-                    <th>Image Filename</th>
-                    <th>Delete</th>
+                    <th>Image filename</th>
+                    <th>Action</th>
                 </thead>
                 <?php while($rowimage =  mysqli_fetch_array($resultimage)){ ?>
                 <tbody>
@@ -128,8 +128,10 @@ $result = $db_admin_account->query("SELECT image_path from admin_carousel_homepa
                     <td class="text-nowrap c-white"><?php echo $rowimage['image_path']; ?></td>
 
                     <td class="c-red d-flex mt-1">
-                        <a href="php/admin-delete-carousel.php?id=<?php echo $rowimage['id'];?>"><input type="button"
-                                class="btn btn-outline-danger" value="Delete"></a>
+                    <a href="php/admin-delete-carousel.php?id=<?php echo $rowimage['id'];?>">
+                                    <i class="fa-solid fa-trash-can" style="font-size:25px; color:red; padding: 10px"
+                                        onclick="return confirm('Are you sure you want to delete this image?')"></i>
+                                </a>
                     </td>
                 </tbody>
                 <?php } ?>

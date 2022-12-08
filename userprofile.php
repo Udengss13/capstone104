@@ -7,10 +7,10 @@
 
       $start_from = 0; 
   $queryimage = "SELECT * FROM admin_content_homepage"; //You dont need like you do in SQL;
-  $resultimage = mysqli_query($db_admin_account, $queryimage);
+  $resultimage = mysqli_query($con, $queryimage);
 
 
-      $result = $db_admin_account->query("SELECT image_path from admin_carousel_homepage");
+      $result = $con->query("SELECT image_path from admin_carousel_homepage");
 ?>
 <?php
 $users = "SELECT * FROM usertable where id='$user_id'"; //You dont need like you do in SQL;
@@ -122,7 +122,7 @@ $userresult = mysqli_query($con, $queryimage);
                                 class="rounded-circle shadow user-profile" alt="Logo" style="width:50%; height:27vh" />
                         </center>
                     </div>
-                    <div class="row mt-4 shadow">
+                    <div class="row mt-4">
                         <h3 class="text-white  text-center mb-0 name">
                             <?php echo $fetch_user['first_name']. " " .$fetch_user['middle_name'] . " " .$fetch_user['last_name']; ?>
                         </h3>
@@ -152,7 +152,7 @@ $userresult = mysqli_query($con, $queryimage);
 
             <div class="row">
                 <div class="col-8">
-                    <h2 class="mt-3">Profile</h2>
+                    <h2 class="mt-4">Profile</h2>
                 </div>
                 <!-- <div class="col">
                         <a href="user-edit-profile.php?updateid=<?php echo $fetch_user['id'];?>">
@@ -162,13 +162,13 @@ $userresult = mysqli_query($con, $queryimage);
                     </div> -->
             </div>
 
-            <h5 class="c-blue  mt-5 mb-0 bg-gray rounded p-3 aboutme">
+            <h5 class="c-blue  mt-5 mb-0 bg-gray rounded p-4 aboutme">
                 <span><i class="fa fa-solid fa fa-phone"> </i> <?php echo $fetch_user['contact']?></span>
             </h5>
-            <h5 class="c-blue  mt-2 mb-0 bg-gray rounded p-3 aboutme">
+            <h5 class="c-blue  mt-2 mb-0 bg-gray rounded p-4 aboutme">
                 <span><i class="fa fa-solid fa fa-house"></i> <?php echo $fetch_user['address']?></span>
             </h5>
-            <h5 class="c-blue  mt-2 mb-0 bg-gray rounded p-3 aboutme">
+            <h5 class="c-blue  mt-2 mb-0 bg-gray rounded p-4 aboutme">
                 <span><i class="fa fa-solid fa fa-envelope"></i> <?php echo $fetch_user['email']?></span>
             </h5>
         </div>
@@ -178,7 +178,7 @@ $userresult = mysqli_query($con, $queryimage);
 
 <hr>
 
-<section class="flex-sect" id="imagesec">
+<!-- <section class="flex-sect" id="imagesec">
     <section id="imagesection" class="div_background_light py-4">
         <div class="container-fluid px-5 mt-3">
             <div class="col-lg-12 col-md-12">
@@ -186,7 +186,7 @@ $userresult = mysqli_query($con, $queryimage);
 
                     <hr>
 
-                    <!--Pictures-->
+                    
 
                     <?php 
                     $select_pet = mysqli_query($con, "SELECT * FROM pettable WHERE user_id = '$user_id' and archive_status=' ' ");
@@ -295,10 +295,10 @@ $userresult = mysqli_query($con, $queryimage);
         </div>
 
     </section>
-</section>
+</section> -->
 
 
-<!--Footer-->
+<!--Footer
 <footer class="footer-banner text-center" id="about">
     <h1 class="text-white" style="padding-top:20px;">PetCo. Animal Clinic</h1>
     <p class="text-white">Please contact us with the social links below.</p>
@@ -317,7 +317,7 @@ $userresult = mysqli_query($con, $queryimage);
             </div>
         </div>
     </div>
-</footer>
+</footer>-->
 
 <?php
     if(isset($_POST['archive'])){

@@ -6,7 +6,7 @@
 
     
     $queryimage = "SELECT * FROM admin_quicktips"; //You don't need a like you do in SQL;
-    $resultimage = mysqli_query($db_admin_account, $queryimage);
+    $resultimage = mysqli_query($con, $queryimage);
 
     if(isset($_POST['action'])){
         
@@ -121,10 +121,10 @@
                                     <td><?php echo $rowmenu['service_name']; ?></td>
                                     <td><?php echo $rowmenu['description']; ?></td>
                                     <td>
-                                        <a class="btn btn-sm btn-danger delete"
+                                        <!--<a class="btn btn-sm btn-danger delete"
                                             data-id="<?php echo $rowmenu['service_id']; ?>"><span
-                                                class="fa fa-times"></span></a>
-                                        <a class="btn btn-sm btn-warning update"
+                                                class="fa fa-times"></span></a>-->
+                                        <a class="btn btn-sm btn-success update"
                                             data-id="<?php echo $rowmenu['service_id']; ?>"><span
                                                 class="fa fa-pencil text-white"></span></a>
                                     </td>
@@ -199,7 +199,7 @@
                 $run_query = mysqli_query($con, $insertavailable);
                 if($run_query){
                     echo '<script>
-                    alert("Service inserted Successfully!");
+                    alert("Added Successfully!");
                     window.location.href="admin-services.php";
                     </script>';
                 }
