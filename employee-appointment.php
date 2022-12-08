@@ -69,7 +69,7 @@
                                             <td><?php echo $day_decode3; ?></td>
                                             <td><?php echo date('h:i a',strtotime($rowmenu['time'])); ?></td>
                                             <td><?php echo $rowmenu['service']; ?></td>
-                                            <td><a class="btn btn-danger btn-sm delete" data-id="<?php echo $rowmenu['id']; ?>"><span class="fa fa-times"></span></a></td>
+                                            <!-- <td><a class="btn btn-danger btn-sm delete" data-id="<?php echo $rowmenu['id']; ?>"><span class="fa fa-times"></span></a></td> -->
                                         </tr>
                                         <?php } ?>
                                     </table>

@@ -2,18 +2,12 @@
 require('layouts/header_admin.php');
 require_once "php/user-list-process.php";
 require('php/connection.php');
+// require_once "controllerUserData.php"; 
      
     //GET USER ID IN REGISTRATION
     
 ?>
-<?php
-  //This is for calling the informaiton of user in fields.
-  if(isset($_SESSION['user_id'])){
-    $sqlInfo = mysqli_query($con, "SELECT * FROM order WHERE order_user_id = '$user_id'");
-  }else{
-    $sqlInfo = mysqli_query($con, "SELECT * FROM order");
-  }
-?>
+
 
 
 
@@ -179,7 +173,11 @@ require('php/connection.php');
 
     <script>
     $(document).ready(function() {
-        $('#example').DataTable();
+        $('#example').DataTable({
+            order: [
+                [5, 'desc']
+            ],
+        });
     });
     </script>
 

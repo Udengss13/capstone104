@@ -192,7 +192,7 @@ color: red;
     animation: wave 3s;
     animation-delay: 1s;
 }
-/* @keyframes wave {
+ @keyframes wave {
     0% {
         transform: translateX(0) translateZ(0) scaleY(1);
     }

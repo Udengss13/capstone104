@@ -7,11 +7,12 @@
         // $admin_id = $_SESSION['admin_id'];
         // }
 
-        // $admin_id = $_SESSION['id'];
-       
-        // if(!isset($admin_id)){
-        //     echo $admin_id;
-        // }
+        $admin_id = $_SESSION['id'];
+        
+        if(!isset($admin_id)){
+            header('location: admin-login.php'.$admin_id);
+            // echo $admin_id;
+        }
     
 
     
@@ -84,7 +85,7 @@
 <head>
     <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
-    
+
     .inbox_people {
         background: #f8f8f8 none repeat scroll 0 0;
         float: left;
@@ -347,8 +348,8 @@
 
 
                             <a class="nav-link px-sm-0 px-1" href="admin-appointment.php"><i
-                                    class="fs-4 fa-regular fa-user text-white"></i><span
-                                    class="ms-1 d-none d-sm-inline">Add Appointment</a>
+                                    class="fs-4 fa-regular fa-calendar-check"></i><span class="ms-1 d-none d-sm-inline"> Add
+                                    Appointment</a>
                             <!-- <i class="fa-regular fa-user"></i> -->
 
                         </li>
@@ -357,7 +358,7 @@
 
                             <a class="nav-link px-sm-0 px-1" href="admin-user-accounts.php"><i
                                     class="fs-4 fa-regular fa-user text-white"></i><span
-                                    class="ms-1 d-none d-sm-inline">User Accounts</a>
+                                    class="ms-1 d-none d-sm-inline"> User Accounts</a>
                             <!-- <i class="fa-regular fa-user"></i> -->
 
                         </li>
@@ -367,7 +368,8 @@
                         </li> -->
                         <li>
                             <a class="nav-link px-sm-0 px-1" href="archive-pet.php"><i
-                                    class="fs-4 fa-regular fa-rectangle-list"></i><span class="ms-1 d-none d-sm-inline">Pet
+                                    class="fs-4 fa-regular fa-rectangle-list"></i><span
+                                    class="ms-1 d-none d-sm-inline"> Pet
                                     Archive</a>
 
 
@@ -383,14 +385,14 @@
 
                         <li class="nav-item mb-2">
                             <a href="admin-orders.php" class="nav-link px-sm-0 px-1">
-                                <i class="fs-4 bi-bag-check"></i><span class="ms-1 d-none d-sm-inline">Orders</span>
+                                <i class="fs-4 bi-bag-check"></i><span class="ms-1 d-none d-sm-inline"> Orders</span>
                             </a>
                         </li>
                         <li class="dropdown mb-2">
                             <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fs-4 bi-pencil-square"></i><span
-                                    class="ms-1 d-none d-sm-inline">Content</span>
+                                    class="ms-1 d-none d-sm-inline"> Content</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
                                 <li><a class="dropdown-item" href="admin-slider.php"><i
@@ -412,6 +414,12 @@
 
                                 <!-- <li><a class="dropdown-item" href="admin-quicktips.php">Quicktips</a></li> -->
                             </ul>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="admin-category-list.php" class="nav-link px-sm-0 px-1">
+                            <i class="fs-4 fa-solid fa-list-ul"></i><span class="ms-1 d-none d-sm-inline"> Product
+                                    Category</span>
+                            </a>
                         </li>
                     </ul>
                     <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">

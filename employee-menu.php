@@ -26,7 +26,7 @@
     $update_sql = "UPDATE admin_menu SET stock_in = '$current_qty' WHERE Menu_id='$id'";
     $run_update = mysqli_query($con, $update_sql); 
     if($run_update){
-        $alert = date('Y-m-d', strtotime("-5 days", $expiration));
+        $alert = date('Y-m-d', strtotime($expiration. '-5 days'));
         $insert_sql = "INSERT INTO stock_management (product_id,remarks,stock_in,current_stock,expiration,alert_expire)
                       VALUES ('$id','$remarks','$qty','$current_qty','$expiration','$alert')";
         $resultcategorys = mysqli_query($con, $insert_sql);
@@ -48,7 +48,7 @@
     $update_sql = "UPDATE admin_menu SET stock_in = '$current_qty', stock_out='$out' WHERE Menu_id='$id'";
     $run_update = mysqli_query($con, $update_sql); 
     if($run_update){
-        $alert = date('Y-m-d', strtotime("-5 days", $expiration));
+        $alert = date('Y-m-d', strtotime($expiration. '-5 days'));
         $insert_sql = "INSERT INTO stock_management (product_id,remarks,stock_out,current_stock)
                       VALUES ('$id','$remarks','$qty','$current_qty')";
         $resultcategorys = mysqli_query($con, $insert_sql);

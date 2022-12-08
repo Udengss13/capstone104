@@ -466,11 +466,11 @@ $errors = array();
     if(isset($_POST['admin-login'])) {
   
        // username and password sent from form 
-       $username = mysqli_real_escape_string($db_admin_account, $_POST['username']);
-       $password = mysqli_real_escape_string($db_admin_account, $_POST['password']);
+       $username = mysqli_real_escape_string($con, $_POST['username']);
+       $password = mysqli_real_escape_string($con, $_POST['password']);
        
        $sql = "SELECT * FROM admin_login WHERE Username = '$username' and Password = '$password'";
-       $result = mysqli_query($db_admin_account,$sql);
+       $result = mysqli_query($con,$sql);
        // $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
        
        // $count = mysqli_num_rows($result);

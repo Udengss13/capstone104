@@ -196,14 +196,16 @@
                                     $querymenu = "SELECT s.id,s.expiration,a.Menu_name,s.alert_expire,s.settled FROM stock_management s 
                                                     LEFT JOIN admin_menu a
                                                     ON a.Menu_id = s.product_id
-                                                    WHERE DATE(s.expiration)<NOW() AND s.settled=0"; 
+                                                    WHERE DATE(s.alert_expire)<NOW() AND s.settled=0"; 
                                     $resultmenu = mysqli_query($con, $querymenu);  
+
+                                    
                                 ?>
                     <button type="button" class="btn btn-primary mb-3"
                         onclick="PrintElem('product-content','Expired Products')"><span class="fa fa-print"></span>
                         Print</button>
                     <div class="table-responsive" id="product-content">
-                        <table id="expired" class="table table-bordered table table-striped" >
+                        <table id="expired" class="table table-bordered table table-striped">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -213,13 +215,31 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $count = 0; while($rowmenu =  mysqli_fetch_array($resultmenu)){  $count++;?>
+                                
+                                <?php   
+                                
+                                $count = 0; while($rowmenu =  mysqli_fetch_array($resultmenu)){  $count++;?>
                                 <tr>
-                                    <td align="center"><?php echo $count; ?></td>
+                                    <?php
+                                    $date =date("Y/m/d");
+                                    if($rowmenu['expiration'] < strtotime($date) ){?>
+                                    <td align="center" class="text-light bg-danger"><?php echo $count; ?></td>
                                     <td><?php echo $rowmenu['Menu_name']; ?></td>
                                     <td><?php echo date('F d,Y',strtotime($rowmenu['expiration'])); ?></td>
                                     <td align="center"><input type="checkbox" class="settle"
                                             data-id="<?php echo $rowmenu['id']; ?>" /></td>
+                                    <?php }
+                                            
+
+                                    
+                                    else{?>
+                                    <td align="center" class="text-light bg-danger"><?php echo $count; ?></td>
+                                    <td><?php echo $rowmenu['Menu_name']; ?></td>
+                                    <td><?php echo date('F d,Y',strtotime($rowmenu['expiration'])); ?></td>
+                                    <td align="center"><input type="checkbox" class="settle"
+                                            data-id="<?php echo $rowmenu['id']; ?>" /></td>
+                                    <?php }?>
+
                                 </tr>
                                 <?php } ?>
                             </tbody>
@@ -244,7 +264,7 @@
                                 ?>
 
                     <div class="table-responsive" id="product-content">
-                    <table id="products" class="table table-bordered table table-striped" >
+                        <table id="products" class="table table-bordered table table-striped">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -254,14 +274,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <?php $count2 = 0; while($rowmenu =  mysqli_fetch_array($resultmenus)){  $count2++;?>
-                            <tr>
-                                <td align="center"><?php echo $count2; ?></td>
-                                <td><?php echo $rowmenu['Menu_name']; ?></td>
-                                <td align="center"><?php echo $rowmenu['stock_in']; ?></td>
-                                <td align="center"><?php echo $rowmenu['stock_out']; ?></td>
-                            </tr>
-                            <?php } ?>
+                                <?php $count2 = 0; while($rowmenu =  mysqli_fetch_array($resultmenus)){  $count2++;?>
+                                <tr>
+                                    <td align="center"><?php echo $count2; ?></td>
+                                    <td><?php echo $rowmenu['Menu_name']; ?></td>
+                                    <td align="center"><?php echo $rowmenu['stock_in']; ?></td>
+                                    <td align="center"><?php echo $rowmenu['stock_out']; ?></td>
+                                </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

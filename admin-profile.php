@@ -1,6 +1,8 @@
 <?php
-    require_once "php/user-list-process.php";
-    require('php/connection.php');
+require('layouts/header_admin.php');
+require_once "php/user-list-process.php";
+require('php/connection.php');
+
     
 
     $querys = "SELECT * FROM `usertable` WHERE archive =''";  //You don't need a like you do in SQL;
@@ -25,10 +27,7 @@ require_once "controllerAdmin.php";
 
 <?php
 
-require('layouts/header_admin.php');
-    require_once "php/user-list-process.php";
-    require('php/connection.php');
-    
+
 
     $query = "SELECT * FROM usertable"; //You don't need a like you do in SQL;
     $result = mysqli_query($con, $query);

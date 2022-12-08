@@ -8,6 +8,7 @@
 
 <head>
     <title>Admin|| Orders</title>
+    
     <link rel="icon" href="asset/logopet.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +22,7 @@
     <!-- tables -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
@@ -98,8 +100,8 @@
                                 <input class="form-control" type="date" min="<?php //echo date('Y-m-d'); ?>" required name="date-appointment"/>
                             </div> -->
                         <div class="form-group mb-3">
-                            <label>Day</label>
-                            <select class="form-control" name="day[]" multiple="multiple" required>
+                            <label>Day</label><br>
+                            <!-- <select class="form-control" name="day[]" multiple="multiple" required>
                                 <option value="">Select Day</option>
                                 <option value="Monday">Monday</option>
                                 <option value="Tuesday">Tuesday</option>
@@ -108,42 +110,60 @@
                                 <option value="Friday">Friday</option>
                                 <option value="Saturday">Saturday</option>
                                 <option value="Sunday">Sunday</option>
-                            </select>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label>Time</label>
-                            <input class="form-control" type="time" required name="time-appointment" />
-                        </div>
-                        <?php 
+                            </select> -->
+                            <div class="row">
+                                <div class="col">
+                                    <input type="checkbox" name="day[]" value="Monday"> Monday<br>
+                                    <input type="checkbox" name="day[]" value="Tuesday"> Tuesday<br>
+                                    <input type="checkbox" name="day[]" value="Wednesday"> Wednesday<br>
+                                    <input type="checkbox" name="day[]" value="Thursday"> Thursday<br>
+                                </div>
+
+
+                                <div class="col">
+                                    <input type="checkbox" name="day[]" value="Friday"> Friday<br>
+                                    <input type="checkbox" name="day[]" value="Saturday"> Saturday<br>
+                                    <input type="checkbox" name="day[]" value="Sunday"> Sunday<br>
+                                </div>
+                            </div>
+                            <br>
+
+
+                            <div class="form-group mb-3">
+                                <label>Time</label>
+                                <input class="form-control" type="time" required name="time-appointment" />
+                            </div>
+                            <?php 
                                 $queryservice = "SELECT * FROM `service`"; 
                                 $resultservices = mysqli_query($con, $queryservice);
                             ?>
-                        <div class="form-group">
-                            <label>Service</label>
-                            <select class="form-control" required name="service">
-                                <option value="">Select Service</option>
-                                <?php while($row =  mysqli_fetch_array($resultservices)){ ?>
-                                <option value=" <?php echo $row['service_name']; ?>">
-                                    <?php echo $row['service_name']; ?>
-                                </option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                        <?php 
+                            <div class="form-group">
+                                <label>Service</label>
+                                <select class="form-control" required name="service">
+                                    <option value="">Select Service</option>
+                                    <?php while($row =  mysqli_fetch_array($resultservices)){ ?>
+                                    <option value=" <?php echo $row['service_name']; ?>">
+                                        <?php echo $row['service_name']; ?>
+                                    </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                            <br>
+                            <?php 
                                 $queryservice = "SELECT * FROM `usertable` where user_level='employee'"; 
                                 $resultservices = mysqli_query($con, $queryservice);
                             ?>
-                        <div class="form-group">
-                            <label>Choose Employee</label>
-                            <select class="form-control" required name="employee">
-                                <option value="">Select Service</option>
-                                <?php while($row =  mysqli_fetch_array($resultservices)){ ?>
-                                <option value=" <?php echo $row['id'] ?>">
-                                    <?php echo $row['first_name'].' '.$row['last_name'];  ?>
-                                </option>
-                                <?php } ?>
-                            </select>
-                        </div>
+                            <div class="form-group">
+                                <label>Choose Employee</label>
+                                <select class="form-control" required name="employee">
+                                    <option value="">Select Service</option>
+                                    <?php while($row =  mysqli_fetch_array($resultservices)){ ?>
+                                    <option value=" <?php echo $row['id'] ?>">
+                                        <?php echo $row['first_name'].' '.$row['last_name'];  ?>
+                                    </option>
+                                    <?php } ?>
+                                </select>
+                            </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -188,6 +208,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<!-- <script>import Swal from 'sweetalert2/dist/sweetalert2.js'</script> -->
+
     <script>
     $(document).ready(function() {
         $('select[name="day[]"]').select2({

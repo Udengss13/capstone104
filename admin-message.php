@@ -1,6 +1,14 @@
 <?php
     require_once "php/user-list-process.php";
     require('php/connection.php');
+    require_once "controllerUserData.php"; 
+
+    $admin_id = $_SESSION['id'];
+        
+    if(!isset($admin_id)){
+        header('location: admin-login.php'.$admin_id);
+        // echo $admin_id;
+    }
     
 
     

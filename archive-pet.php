@@ -94,17 +94,20 @@
                                 <?php echo $row['petbreed']  ?>
                             </td>
                             <td class="col-sm-1 col-md-1 col-lg-2">
+                                <?php echo $row['pettype']  ?>
+                            </td>
+                            <td class="col-sm-1 col-md-1 col-lg-2">
                                 <?php echo $row['petsex']  ?>
                             </td>
                             <td class="col-sm-1 col-md-1 col-lg-2">
                                 <?php echo $row['petbday']  ?>
                             </td>
-                            <td class="col-sm-1 col-md-1 col-lg-2">
+                            <!-- <td class="col-sm-1 col-md-1 col-lg-2">
                                 <?php echo $row['user_id']  ?>
-                            </td>
-                            <td class="col-sm-1 col-md-1 col-lg-2">
+                            </td> -->
+                            <!-- <td class="col-sm-1 col-md-1 col-lg-2">
 
-                            </td>
+                            </td> -->
                             <?php $bday = new DateTime($row['petbday']); // Pet Bday
                             $today = new Datetime(date('y-m-d'));
                             $diff = $today->diff($bday);
