@@ -101,13 +101,13 @@
                         <td class="text-nowrap text-center c-white"><?php echo $rowslide['category_name']; ?></td>
                         <td class="text-nowrap text-center c-white"><?php echo $rowslide['category_details']; ?></td>
                         <!-- <td class="c-red text-center"> -->
-                            <!--Edit-->
-                            <!-- <a href="admin-edit-category.php?updateid=<?php echo $rowslide['category_id'];  ?>"
+                        <!--Edit-->
+                        <!-- <a href="admin-edit-category.php?updateid=<?php echo $rowslide['category_id'];  ?>"
                                 class="text-decoration-none c-green">
                                 <button class="btn btn-outline-success mx-2 my-2">Edit</button></a> -->
 
-                            <!--Delete-->
-                            <!-- <a href="php/category-list-process.php?id=<?php echo $rowslide['category_id']; ?>"><input
+                        <!--Delete-->
+                        <!-- <a href="php/category-list-process.php?id=<?php echo $rowslide['category_id']; ?>"><input
                                     type="button" class="btn btn-outline-danger " value="Delete">
                             </a> -->
                         <!-- </td> -->

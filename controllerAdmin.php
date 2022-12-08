@@ -1,6 +1,6 @@
 <?php 
 //https://www.codepile.net/pile/ap07x5A1
-session_start();
+// session_start();
 require "php/connection.php";
 $email = "";
 $fname = "";
@@ -33,11 +33,11 @@ $errors = array();
         $password = mysqli_real_escape_string($con, $_POST['password']);
         $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
         $contact = mysqli_real_escape_string($con, $_POST['contact']);
-        $pettype = mysqli_real_escape_string($con, $_POST['pettype']);
-        $petbreed = mysqli_real_escape_string($con, $_POST['petbreed']);
-        $petname = mysqli_real_escape_string($con, $_POST['petname']);
-        $petsex = mysqli_real_escape_string($con, $_POST['petsex']);
-        $petbday = date('Y-m-d', strtotime($_POST['petbday']));
+        // $pettype = mysqli_real_escape_string($con, $_POST['pettype']);
+        // $petbreed = mysqli_real_escape_string($con, $_POST['petbreed']);
+        // $petname = mysqli_real_escape_string($con, $_POST['petname']);
+        // $petsex = mysqli_real_escape_string($con, $_POST['petsex']);
+        // $petbday = date('Y-m-d', strtotime($_POST['petbday']));
         
         $filenamedir = "asset/profiles/".$_FILES["photo"]["name"];
         $filename = $_FILES["photo"]["name"];
@@ -58,7 +58,7 @@ $errors = array();
         if( count($errors) === 0 && move_uploaded_file($_FILES["photo"]["tmp_name"], $filenamedir)){
          
             $code = rand(999999, 111111);
-            $status = "verified";
+            $status = "notverified";
           
 
             $insert_data = "INSERT INTO usertable (first_name, middle_name, last_name, suffix, address, email, password, code, status, contact, image_dir, image_filename, user_level)
@@ -68,8 +68,13 @@ $errors = array();
             $user_id = $con->insert_id;
 
             if($data_check1){
-                 $query1 = "INSERT INTO `pettable`(`user_id`, `pettype`, `petbreed`, `petname` ,`petsex`, `petbday`) VALUES ('$user_id','$pettype', '$petbreed', '$petname' , '$petsex', '$petbday')";
+                $user_id = $con->insert_id;
+                foreach ($_POST['pettype'] as $key => $value) {
+                $petbday = date('Y-m-d', strtotime($_POST['petbday'][$key]));
+                 $query1 = "INSERT INTO `pettable`(`user_id`, `pettype`, `petbreed`, `petname` ,`petsex`, `petbday`) 
+                 VALUES ('" . $user_id . "','" . $_POST['pettype'][$key] . "', '" . $_POST['petbreed'][$key] . "', '" . $_POST['petname'][$key] . "' , '" . $_POST['petsex'][$key] . "', ' $petbday')";
                  $data_check = mysqli_query($con, $query1); 
+                }
           
               if($data_check){   
                 echo '<script> alert("Client Account Created Successfully!");
@@ -80,7 +85,7 @@ $errors = array();
             }
         }
     }
- $fname = "";
+$fname = "";
 $mname = "";
 $lname = "";
 $suffix = "";
@@ -95,7 +100,7 @@ $empstatus="";
     //if user signup button
     if(isset($_POST['signup_emp'])){
        
-        $idno = mysqli_real_escape_string($con, $_POST['idno']);
+        // $idno = mysqli_real_escape_string($con, $_POST['idno']);
         $fname = mysqli_real_escape_string($con, $_POST['firstname']);
         $mname = mysqli_real_escape_string($con, $_POST['middle_name']);
         $lname = mysqli_real_escape_string($con, $_POST['last_name']);
@@ -109,6 +114,9 @@ $empstatus="";
         
 
 
+        $filenamedir = "asset/profiles/".$_FILES["photo"]["name"];
+        $filename = $_FILES["photo"]["name"];
+
         if($password !== $cpassword){
             $errors['password'] = "Confirm password not matched!";
         }
@@ -120,7 +128,7 @@ $empstatus="";
         }
         
 
-         if(count($errors) === 0){
+         if(count($errors) === 0 && move_uploaded_file($_FILES["photo"]["tmp_name"], $filenamedir)){
          
              $code = rand(999999, 111111);
              $status = "verified";

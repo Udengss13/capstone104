@@ -33,4 +33,28 @@ session_start();
        }      
 }
 
+    if(isset($_POST['admin_profile'])){
+        $admin_id = $_POST['id'];
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+       
+        $filenamedir = "../asset/profiles/".$_FILES["photo"]["name"];
+        $filename = $_FILES["photo"]["name"];
+
+         // move file to a folder
+         if(move_uploaded_file($_FILES["photo"]["tmp_name"], $filenamedir))
+         {
+         $adminquery = "UPDATE `admin_login` SET `first_name`  = '$fname', `last_name` = '$lname', image_dir = '$filenamedir', image_filename = '$filename'  WHERE `admin_login`.`id` = '$admin_id'";
+              
+         if(mysqli_query($con, $adminquery)){
+             
+          $_SESSION['update_changes'] = "Your data has been edited successfully";
+          header('location: ../admin-edit-profile.php?updateid='.$admin_id);
+         }
+         else{
+          echo "mlai";
+         }
+       }      
+}
+
 ?>

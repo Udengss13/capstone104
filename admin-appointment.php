@@ -8,7 +8,7 @@
 
 <head>
     <title>Admin|| Orders</title>
-    
+
     <link rel="icon" href="asset/logopet.png" type="image/x-icon">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,7 +34,7 @@
 
     <!-- ====================================================================================================== -->
     <div class="col-md-9 col-xl-10 py-3">
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header row">
@@ -73,7 +73,18 @@
                                     <td><?php echo $day_decode3; ?></td>
                                     <td><?php echo date('h:i a',strtotime($rowmenu['time'])); ?></td>
                                     <td><?php echo $rowmenu['service']; ?></td>
-                                    <td><?php echo $rowmenu['employee_id']; ?></td>
+                                    <!-- <td><?php echo $rowmenu['employee_id']; ?></td> -->
+
+                                    <?php $querymenu = "SELECT first_name, last_name FROM available_appointment INNER JOIN usertable
+                                        ON available_appointment.employee_id = usertable.id
+                                        WHERE usertable.id=".$rowmenu['employee_id'];
+                                        $result = mysqli_query($con, $querymenu);
+                                        if(mysqli_num_rows($result) > 0){
+                                            $fetch_user = mysqli_fetch_assoc($result); 
+                                            };  ?>
+                                    <td><?php echo $fetch_user['first_name']." ".$fetch_user['last_name']; ?></td>
+                                    
+
                                     <td><a class="btn btn-danger btn-sm delete"
                                             data-id="<?php echo $rowmenu['id']; ?>"><span
                                                 class="fa fa-times"></span></a></td>
@@ -208,7 +219,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<!-- <script>import Swal from 'sweetalert2/dist/sweetalert2.js'</script> -->
+    <!-- <script>import Swal from 'sweetalert2/dist/sweetalert2.js'</script> -->
 
     <script>
     $(document).ready(function() {

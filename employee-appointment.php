@@ -51,7 +51,7 @@
                                                 <th>Day</th>
                                                 <th>Time</th>
                                                 <th>Service</th>
-                                                <th></th>
+                                                
                                             </tr>
                                         </thead>
                                         <?php 

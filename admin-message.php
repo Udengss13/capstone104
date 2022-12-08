@@ -341,8 +341,9 @@
                         ?>
                         <li>
                             <a href="admin-message.php" class="nav-link px-sm-0 px-1">
-                                <i class="fs-4 fa-regular fa-message text-white"></i><span class="ms-1 d-none d-sm-inline">
-                               
+                                <i class="fs-4 fa-regular fa-message text-white"></i><span
+                                    class="ms-1 d-none d-sm-inline">
+
                                     Messages
                                     <?php if($count_message>0){ ?><span
                                         class="badge badge-danger text-white bg-danger"><?php echo $count_message; ?></span><?php } ?></span>
@@ -353,8 +354,9 @@
 
 
                             <a class="nav-link px-sm-0 px-1" href="admin-user-accounts.php"><i
-                                    class="fs-4 fa-regular fa-user text-white"></i><span class="ms-1 d-none d-sm-inline">User Accounts</a>
-                                    <!-- <i class="fa-regular fa-user"></i> -->
+                                    class="fs-4 fa-regular fa-user text-white"></i><span
+                                    class="ms-1 d-none d-sm-inline">User Accounts</a>
+                            <!-- <i class="fa-regular fa-user"></i> -->
 
                         </li>
                         <!-- <li class="nav-item">
@@ -401,11 +403,18 @@
                             </ul>
                         </li>
                     </ul>
+                    <?php 
+                            $select_user = mysqli_query($con, "SELECT * FROM admin_login WHERE id = '$admin_id'");
+                            if(mysqli_num_rows($select_user) > 0){
+                            $fetch_user = mysqli_fetch_assoc($select_user); 
+                            };
+                        ?>
                     <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
                             id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="asset/cha.jpg" alt="Admin" width="28" height="28" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">Cha</span>
+                            <img src="asset/profiles/<?php echo $fetch_user['image_filename']?>" alt="user" width="28"
+                                height="28" class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1"><?php $fetch_user['first_name']?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                             <!-- <li><a class="dropdown-item" href="#">New project...</a></li>
@@ -414,7 +423,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="admin-login.php">Sign out</a></li>
+                            <li><a class="dropdown-item" href="logoutadmin.php">Sign out</a></li>
                         </ul>
                     </div>
                 </div>
