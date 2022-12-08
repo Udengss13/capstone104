@@ -5,7 +5,7 @@
 
     
     $queryimage = "SELECT * FROM admin_quicktips"; //You don't need a like you do in SQL;
-    $resultimage = mysqli_query($db_admin_account, $queryimage);
+    $resultimage = mysqli_query($con, $queryimage);
 
     if(isset($_POST['action'])){
         

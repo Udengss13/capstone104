@@ -18,7 +18,7 @@
     //https://www.codepile.net/pile/NYN5P9Qq
 
       $querycategory = "SELECT * FROM admin_category"; 
-      $resultcategory = mysqli_query($db_admin_account, $querycategory);   
+      $resultcategory = mysqli_query($con, $querycategory);   
 
       $user_id = $_SESSION['user_id'];
 
@@ -471,29 +471,26 @@
 <?php } ?>
 
 
-
-
-
-
 <footer class="footer-banner text-center" id="about">
-    <h1 class="text-white" style="padding-top:20px;">PetCo. Animal Clinic</h1>
-    <p class="text-white">Please contact us with the social links below.</p>
-    <div class="container" style="padding-top:100px;">
-        <div class="row">
-            <div class="col-12 text-center">
-                <ul class="follow" style="color: white;">
-                    <a href="https://www.facebook.com/"><span class="fab fa-facebook text-white"
-                            style="font-size:30px;padding:10px;"></span></a>
-                    <a href="https://www.instagram.com//"><span class="fab fa-instagram text-white"
-                            style="font-size:30px;padding:10px;"></span></a>
-                    <a href="https://www.twitter.com/"><span class="fab fa-twitter text-white"
-                            style="font-size:30px;padding:10px;"></span></a>
-                </ul>
-                <label class="text-white">© 2022 All Rights Reserved. PetCo. Animal Clinic.</label>
+        <h1 class="text-white" style="padding-top:20px;">PetCo. Animal Clinic</h1>
+        <p class="text-white">Get in touch on our products and promos.</p>
+       
+                    <div class="col-12 text-center">
+                        <ul class="follow" style="color: white;">
+                            <a href="https://www.facebook.com/PetCoAnimalClinic"><span
+                                    class="fab fa-facebook text-white" style="font-size:30px;padding:10px;"></span></a>
+                            <a href="https://www.instagram.com//"><span class="fab fa-instagram text-white"
+                                    style="font-size:30px;padding:10px;"></span></a>
+                            <a href="https://www.twitter.com/"><span class="fab fa-twitter text-white"
+                                    style="font-size:30px;padding:10px;"></span></a>
+
+
+                        </ul>
+                        <label class="text-white">© 2022 All Rights Reserved. PetCo. Animal Clinic.</label>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 
 

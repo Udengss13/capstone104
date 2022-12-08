@@ -38,13 +38,17 @@
         $queryimage = "SELECT * FROM admin_gallery WHERE Image_id=$id"; 
         $resultimage = mysqli_query($db_admin_account, $queryimage);
         $rowimage =  mysqli_fetch_array($resultimage);
+        
 
         $filedir = $rowimage['Image_dir'];
 
         $sqldelete = "DELETE FROM admin_gallery WHERE Image_id=$id";
         $resultdelete = mysqli_query($db_admin_account, $sqldelete);
         unlink($filedir);
-        header("location: ../admin-gallery.php");
+        echo '<script> alert("Image Deleted Succesfully");
+        window.location.href="../employee-menu.php";
+        </script>'; 
+        
     }
 
 

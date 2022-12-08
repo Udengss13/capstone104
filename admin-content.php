@@ -6,7 +6,7 @@
 
     
     $queryimage = "SELECT * FROM admin_content_homepage"; //You don't need a like you do in SQL;
-    $resultimage = mysqli_query($db_admin_account, $queryimage);
+    $resultimage = mysqli_query($con, $queryimage);
     
 ?>
 
@@ -134,11 +134,11 @@
     <table id="example" class="table table-striped table table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Subtitle</th>
-                <th>Body</th>
-                <th>Delete</th>
+                <th style="text-align: center;">Image</th>
+                <th style="text-align: center;">Title</th>
+                <th style="text-align: center;">Subtitle</th>
+                <th style="text-align: center;">Body</th>
+                <th style="text-align: center;">Action</th>
 
             </tr>
         </thead>
@@ -146,22 +146,22 @@
             <?php while($rowimage =  mysqli_fetch_array($resultimage)){ ?>
             <tr>
 
-                <td class="col-2">
+                <td class="col-2" style="text-align: center;">
                     <img src=" asset/homepage/<?php echo $rowimage['Image_filename']; ?> "
                         class="zoom img-thumbnail img-responsive images_menu" width="70%">
                 </td>
 
-                <td>
+                <td style="text-align: center;">
                     <?php echo $rowimage['Image_title']; ?>
                 </td>
-                <td>
+                <td style="text-align: center;">
                     <?php echo $rowimage['Image_subtitle']; ?>
                 </td>
-                <td>
+                <td style="text-align: center;">
 
                     <?php echo $rowimage['Image_body']; ?>
                 </td>
-                <td>
+                <td style="text-align: center;">
                     <a class="update" data-id="<?php echo $rowimage['Image_id'];?>">
                         <i class="fa-solid fa-pen" style="font-size:25px; padding: 10px"></i>
 

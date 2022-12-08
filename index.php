@@ -4,20 +4,20 @@
   
   $start_from = 0; 
   $queryimage = "SELECT * FROM admin_content_homepage ORDER BY `admin_content_homepage`.`Image_id` DESC"; //You dont need like you do in SQL;
-  $resultimage = mysqli_query($db_admin_account, $queryimage);
+  $resultimage = mysqli_query($con, $queryimage);
 
-  $result = $db_admin_account->query("SELECT image_path from admin_carousel_homepage");
+  $result = $con->query("SELECT image_path from admin_carousel_homepage");
   ?>
 
 <?php
   $quicktipsquery = "SELECT * FROM admin_quicktips"; //You dont need like you do in SQL;
-  $quicktipsresult = mysqli_query($db_admin_account, $quicktipsquery);
+  $quicktipsresult = mysqli_query($con, $quicktipsquery);
 
   
   ?>
   <?php
   $gallery = "SELECT * FROM admin_gallery"; //You dont need like you do in SQL;
-  $resultgallery = mysqli_query($db_admin_account, $gallery);
+  $resultgallery = mysqli_query($con, $gallery);
 
   
   ?>
@@ -152,7 +152,7 @@
 
                 <h3 class="text-center">WELCOME</h3>
                 <h4 class="text-center">To keep connected with us</h4>
-                <h4 class="text-center">Please log-in you personal info</h4>
+                <h4 class="text-center">Please log-in your personal info</h4>
             </div>
             <div class="col-md-7 col-lg-4 col-sm-4 mt-5 form login-form">
                 <form action="" method="POST" autocomplete="">
@@ -296,7 +296,7 @@
             <div class="container-fluid px-5">
                 <div class="col-lg-12 col-md-12">
                     <div style="width: 100%; height: 30px; border-bottom: 2px solid white; text-align: center">
-                        <span style="font-size: 40px; background-color:#9FBACD; color: white">
+                        <span style="font-size: 35px; background-color:#9FBACD; color: white">
                             QUICKTIPS
                             <!--Padding is optional-->
                         </span>
@@ -333,7 +333,7 @@
             <div class="container-fluid px-5 mt-3">
                 <div class="col-lg-12 col-md-12">
                     <div class="justify-content-center row col-md-12 rounded-3">
-                        <h3 class="col-12  text-center fw-bolder"
+                        <h3 class="col-12  text-center"
                             style="text-shadow: 3px 1px 3px  lightblue; color: rgb(13, 13, 103)">
                             ANNOUNCEMENT</h3>
                         <hr>
@@ -381,7 +381,7 @@
         <section id="imagesection" class="div_background_light py-4">
             <div class="justify-content-center row col-md-12 rounded-3 mb-5">
                 <div style="width: 100%; height: 30px; border-bottom: 2px solid white; text-align: center">
-                    <span style="font-size: 40px; background-color:#fafafa4f; color: black">
+                    <span style="font-size: 35px; background-color:#fafafa4f; color: black">
                         SERVICES
                     </span>
                 </div>
@@ -411,9 +411,9 @@
             <div class="container-fluid px-5 mt-3">
                 <div class="col-lg-12 col-md-12">
                     <div class="justify-content-center row col-md-12 rounded-3">
-                        <h3 class="col-12  text-center fw-bolder"
+                        <h3 class="col-12  text-center"
                             style="text-shadow: 3px 1px 3px  lightblue; color: rgb(13, 13, 103)">
-                            GALLERY</h3>
+                            PET GALLERY</h3>
                         <hr>
 
                         <!--Pictures-->
@@ -424,7 +424,7 @@
 
 
                             <img src="asset/gallery/<?php echo $rowimage['Image_filename'] ?>"
-                                class="card-img-top pt-3 img-responsive " style="height:270px; width:100%;">
+                                class="card-img-top pt-3 img-responsive " style="height:300px; width:100%;">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title text-center">
                                     <?php echo $rowimage['Image_subtitle'] ?></h5>
@@ -461,14 +461,14 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="justify-content-center row col-md-12 rounded-3">
                         <div style="width: 100%; height: 30px; border-bottom: 2px solid white; text-align: center">
-                            <span style="font-size: 40px; background-color:#9FBACD; color: white">
+                            <span style="font-size: 35px; background-color:#9FBACD; color: white">
                                 ABOUT US
                                 <!--Padding is optional-->
                             </span>
                         </div>
                         <div class="row box">
                             <div class="col bg-light p-4 rounded shadow">
-                                <h4 style=" text-align: justify">&emsp;PetCo. Animal Clinic was established in June
+                                <h5 style=" text-align: justify">&emsp;PetCo. Animal Clinic was established in June
                                     2021, and
                                     they started offering services in their Grand Opening last July 3, 2021.
                                     Mr. Karl Ken Sto Domingo
@@ -490,7 +490,7 @@
                                     <br>&emsp;PetCo. Animal Clinic specializes in Vaccination, Consultation,
                                     Confinement, Surgery, Pet
                                     Supplies, etc., for cats and dogs only.
-                                </h4>
+                                </h5>
                             </div>
                             <div class="col">
                                 <img src="asset/profiles/ownerpetco.jpg" class="card-img-top pt-3 img-responsive "
@@ -509,22 +509,23 @@
     </section>
     <footer class="footer-banner text-center" id="about">
         <h1 class="text-white" style="padding-top:20px;">PetCo. Animal Clinic</h1>
-        <p class="text-white">Please contact us with the social links below.</p>
-        <div class="container" style="padding-top:100px;">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <ul class="follow" style="color: white;">
-                        <a href="https://www.facebook.com/PetCoAnimalClinic"><span class="fab fa-facebook text-white"
-                                style="font-size:30px;padding:10px;"></span></a>
-                        <a href="https://www.instagram.com//"><span class="fab fa-instagram text-white"
-                                style="font-size:30px;padding:10px;"></span></a>
-                        <a href="https://www.twitter.com/"><span class="fab fa-twitter text-white"
-                                style="font-size:30px;padding:10px;"></span></a>
-                    </ul>
-                    <label class="text-white">© 2022 All Rights Reserved. PetCo. Animal Clinic.</label>
+        <p class="text-white">Get in touch on our products and promos.</p>
+       
+                    <div class="col-12 text-center">
+                        <ul class="follow" style="color: white;">
+                            <a href="https://www.facebook.com/PetCoAnimalClinic"><span
+                                    class="fab fa-facebook text-white" style="font-size:30px;padding:10px;"></span></a>
+                            <a href="https://www.instagram.com//"><span class="fab fa-instagram text-white"
+                                    style="font-size:30px;padding:10px;"></span></a>
+                            <a href="https://www.twitter.com/"><span class="fab fa-twitter text-white"
+                                    style="font-size:30px;padding:10px;"></span></a>
+
+
+                        </ul>
+                        <label class="text-white">© 2022 All Rights Reserved. PetCo. Animal Clinic.</label>
+                    </div>
                 </div>
             </div>
-        </div>
     </footer>
 
 

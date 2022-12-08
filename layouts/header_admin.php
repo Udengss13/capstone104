@@ -14,7 +14,7 @@
 
     
     $queryimage = "SELECT * FROM admin_quicktips"; //You don't need a like you do in SQL;
-    $resultimage = mysqli_query($db_admin_account, $queryimage);
+    $resultimage = mysqli_query($con, $queryimage);
 
     if(isset($_POST['action'])){
         
@@ -81,6 +81,8 @@
 
 <head>
     <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,700,900');
+    
     .inbox_people {
         background: #f8f8f8 none repeat scroll 0 0;
         float: left;

@@ -16,14 +16,14 @@
   $start_from = 0; 
   $user_id = $_SESSION['user_id'];
   $queryimage = "SELECT * FROM admin_content_homepage"; //You dont need like you do in SQL;
-  $resultimage = mysqli_query($db_admin_account, $queryimage);
+  $resultimage = mysqli_query($con, $queryimage);
 
-  $result = $db_admin_account->query("SELECT image_path from admin_carousel_homepage");
+  $result = $con->query("SELECT image_path from admin_carousel_homepage");
   ?>
 
 <?php
   $quicktipsquery = "SELECT * FROM admin_quicktips"; //You dont need like you do in SQL;
-  $quicktipsresult = mysqli_query($db_admin_account, $quicktipsquery);
+  $quicktipsresult = mysqli_query($con, $quicktipsquery);
 
   
      //To remove by ID
@@ -250,7 +250,7 @@
                 <div class="text-nowrap">
                     <li class="nav-item">
                         <a class="nav-link text-white" href="logout-user.php"
-                                onclick="return confirm('Are you sure do you want to log out?')">LOG OUT</a>
+                                onclick="return confirm('Are you sure you want to log out?')">LOG OUT</a>
                     </li>
                 </div>
 

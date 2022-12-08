@@ -6,7 +6,7 @@
 
     
     $queryimage = "SELECT * FROM admin_quicktips"; //You don't need a like you do in SQL;
-    $resultimage = mysqli_query($db_admin_account, $queryimage);
+    $resultimage = mysqli_query($con, $queryimage);
 
     if(isset($_POST['action'])){
         
@@ -108,9 +108,9 @@
                             <table class="table table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>link</th>
-                                        <th>Service</th>
-                                        <th>Action</th>
+                                        <th style="text-align: center;">Link</th>
+                                        <th style="text-align: center;">Service</th>
+                                        <th style="text-align: center;">Action</th>
                                     </tr>
                                 </thead>
                                 <?php 

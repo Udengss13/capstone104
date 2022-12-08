@@ -9,10 +9,10 @@
 
    $start_from = 0; 
 $queryimage = "SELECT * FROM admin_content_homepage"; //You dont need like you do in SQL;
-$resultimage = mysqli_query($db_admin_account, $queryimage);
+$resultimage = mysqli_query($con, $queryimage);
 
 
-   $result = $db_admin_account->query("SELECT image_path from admin_carousel_homepage");
+   $result = $con->query("SELECT image_path from admin_carousel_homepage");
 ?>
 <?php
 $users = "SELECT * FROM usertable where id='$user_id'"; //You dont need like you do in SQL;

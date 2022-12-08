@@ -40,7 +40,7 @@
                                     Available Appointment
                                 </div>
                                 <div class="col-md-6" align="right">
-                                    <button class="btn btn-success btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#add-modal"><span class="fa fa-plus"></span> Add Appointment Date</button>
+                                    <button class="btn btn-success btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#add-modal"><span class="fa fa-plus"></span> Add Available Appointment</button>
                                 </div>
                             </div>
                             <div class="card-body">

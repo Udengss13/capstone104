@@ -21,6 +21,7 @@
 
       <!-- ====================================================================================================== -->
       <div class="container-xl-fluid pt-5 m-4">
+        
             
             <div class="row">
                     <div class="col-md-6  rounded">
@@ -38,7 +39,7 @@
                                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                         <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Pending</button>
                                         <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Approved</button>
-                                        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Serve</button>
+                                        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Served</button>
                                         <button class="nav-link" id="cancelled-contact-tab" data-bs-toggle="tab" data-bs-target="#cancelled-contact" type="button" role="tab" aria-controls="cancelled-contact" aria-selected="false">Cancelled</button>
                                     </div>
                                 </nav>
@@ -72,8 +73,8 @@
                                                         <td><?php echo $row_pending['petname']; ?></td>
                                                         <td><?php echo $row_pending['service']; ?></td>
                                                         <td class="col-2">
-                                                            <a class="btn btn-sm btn-info approved" data-id="<?php echo $row_pending['id']; ?>"><span class="fa fa-thumbs-o-up" data-bs-toggle="tooltip" data-bs-placement="bottom" title="approve"></span></a> 
-                                                            <a class="btn btn-sm btn-danger cancel" data-id="<?php echo $row_pending['id']; ?>"><span class="fs-5 fa fa-times" data-bs-toggle="tooltip" data-bs-placement="bottom" title="cancel"></span></a>
+                                                            <a class="btn btn-sm btn-info approved" data-id="<?php echo $row_pending['id']; ?>"><span class="fa fa-thumbs-o-up" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Approve"></span></a> 
+                                                            <a class="btn btn-sm btn-danger cancel" data-id="<?php echo $row_pending['id']; ?>"><span class="fs-5 fa fa-times" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cancel"></span></a>
                                                         </td>
                                                     </tr>
                                                 <?php } ?>
@@ -109,8 +110,8 @@
                                                         <td><?php echo $row_approved['petname']; ?></td>
                                                         <td><?php echo $row_approved['service']; ?></td>
                                                         <td>
-                                                            <a class="btn btn-sm btn-success serve" data-id="<?php echo $row_approved['id']; ?>"><span class="fa fa-check" data-bs-toggle="tooltip" data-bs-placement="bottom" title="served"></span></a> 
-                                                            <a class="btn btn-sm btn-danger cancel" data-id="<?php echo $row_approved['id']; ?>"><span class="fs-5 fa fa-times" data-bs-toggle="tooltip" data-bs-placement="bottom" title="cancel"></span></a>
+                                                            <a class="btn btn-sm btn-success serve" data-id="<?php echo $row_approved['id']; ?>"><span class="fa fa-check" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Served"></span></a> 
+                                                            <a class="btn btn-sm btn-danger cancel" data-id="<?php echo $row_approved['id']; ?>"><span class="fs-5 fa fa-times" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cancel"></span></a>
                                                         </td>
                                                     </tr>
                                                 <?php } ?>
@@ -282,7 +283,7 @@
                 var id = $(this).data('id');
 
                 Swal.fire({
-                title: 'Do you want to approved this appointment?',
+                title: 'Do you want to approve this appointment?',
                 icon: 'info',
                 showDenyButton: true,
                 confirmButtonText: 'Yes',
@@ -307,7 +308,7 @@
             $(document).on('click','.cancel',function(){
                 var id = $(this).data('id');
                 Swal.fire({
-                title: 'Do you want to CANCEL this appointment?',
+                title: 'Do you want to cancel this appointment?',
                 icon: 'info',
                 showDenyButton: true,
                 confirmButtonText: 'Yes',
@@ -325,7 +326,7 @@
                         });
                         location.reload();
                     } else if (result.isDenied) {
-                        Swal.fire('Record is not CANCELLED', '', 'info')
+                        Swal.fire('Record is not cancelled', '', 'info')
                     }
                 })
                 
@@ -333,7 +334,7 @@
             $(document).on('click','.serve',function(){
                 var id = $(this).data('id');
                 Swal.fire({
-                    title: 'Do you want to SERVE this appointment?',
+                    title: 'Do you want to serve this appointment?',
                     icon: 'info',
                     showDenyButton: true,
                     confirmButtonText: 'Yes',
