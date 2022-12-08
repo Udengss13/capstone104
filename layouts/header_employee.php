@@ -149,7 +149,7 @@
                 <?php  }else{ ?>
                 <div class="text-nowrap">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="gallery.php">PET GALLERY</a>
+                        <a class="nav-link text-white" href="#petgallery">PET GALLERY</a>
                     </li>
                 </div>
                 <div class="text-nowrap">

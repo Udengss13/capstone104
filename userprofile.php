@@ -135,10 +135,20 @@ $userresult = mysqli_query($con, $queryimage);
                         <?php  }?>
 
                         <center>
-                            <a href="user-edit-profile.php?updateid=<?php echo $fetch_user['id'];?>">
-                                <span class="btn btn-danger bg-button mx-2 mt-2 mb-5 text-white">Edit Profile <i
-                                        class="fa-solid fa-pen-to-square "></i></span>
-                            </a>
+                            <div class="row">
+                            <div class="col-4">
+                                <a href="user-edit-profile.php?updateid=<?php echo $fetch_user['id'];?>">
+                                    <span class="btn btn-danger bg-button mt-2 mb-5 text-white">Edit Profile <i
+                                            class="fa-solid fa-pen-to-square "></i></span>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="user-changepass.php">
+                                    <span class="btn btn-outline-success bg-light  mt-2 mb-5 text-dark">Change Password <i
+                                            class="fa-solid fa-pen-to-square "></i></span>
+                                </a>
+                            </div></div>
+
                         </center>
 
                     </div>

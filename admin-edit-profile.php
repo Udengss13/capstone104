@@ -50,88 +50,86 @@ else{
 
             <form action="php/profile-edit-process.php" method="post" enctype="multipart/form-data"
                 onsubmit="return verifyPassword()">
-                <div class="row justify-content-md-center mb-5 ">
+                <div class="row mb-5 mt-5 ">
+                    <div class="col-2">
 
-                    <!-- <div class="col-lg-7 col-md-6 col-sm-12"> -->
-
-                    <!-- <div class="card-header">
-                            Edit Information for Homepage
-                        </div> -->
-                    <!--Success Message-->
-                    <?php if($applychanges!=""){?>
-                    <div class="alert alert-primary alert-dismissible fade show mt-3 mx-auto justify-content-md-center mb-2"
-                        role="alert" style="width: 50%;">
-                        <strong>Apply Changes Successfully!</strong> <?php echo $applychanges; ?>.
                     </div>
-                    <?php } ?>
-                    <!-- <ul class="list-group "> -->
-                    <!--NAME-->
-                    <!-- <div class="row justify-content-md-center mb-5">
-                    <div class="col-lg-12 col-md-6 col-sm-12">
-                        <div class="card  justify-content-center"> -->
 
-                    <div class="row justify-content-md-center mb-2">
+                    <div class="col-7 bg-light p-4 rounded shadow">
 
-                        <label class="col-md-2 control-label "></label>
-                        <div class="col-md-4 inputGroupContainer ">
-                            <div class="input-group">
-                                <input name="id" class="col-12" type="text" value="<?php echo $fetch_user['id']; ?>"
-                                    hidden>
-                                <!-- <span class="input-group-addon"><i class="fa-solid fa-user ff"></i></span> -->
-                                <img src="asset/profiles/<?php echo $fetch_user['image_filename']?>"
-                                    class="rounded-circle" alt="Logo" style="width:40%; height:17vh" />
 
-                                <input type="file" name="photo" placeholder="lagy" required>
+                        <?php if($applychanges!=""){?>
+                        <div class="alert alert-primary alert-dismissible fade show mt-3 mx-auto justify-content-md-center mb-2"
+                            role="alert" style="width: 50%;">
+                            <strong>Apply Changes Successfully!</strong> <?php echo $applychanges; ?>.
+                        </div>
+                        <?php } ?>
+
+
+                        <div class="row justify-content-md-center mb-2">
+
+                            <label class="col-md- control-label "></label>
+                            <div class="col-md-4 inputGroupContainer ">
+                                <div class="input-group">
+                                    <input name="id" class="col-12" type="text" value="<?php echo $fetch_user['id']; ?>"
+                                        hidden>
+
+                                    <img src="asset/profiles/<?php echo $fetch_user['image_filename']?>"
+                                        class="rounded-circle" alt="Logo" style="width:100%; height:19vh" />
+
+                                    <input type="file" name="photo" placeholder="lagy" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Text input-->
-                    <div class="row  justify-content-md-center mb-2">
-                        <label class="col-md-2 control-label">First Name</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon ff"><i
-                                        class="glyphicon glyphicon-user fa-5x "></i></span>
-                                <input name="fname" class="form-control" type="text"
-                                    value="<?php echo $fetch_user['first_name'];   ?>" required>
+                        <!-- Text input-->
+                        <div class="row  justify-content-md-center mb-2">
+                            <label class="col-md-2 control-label">First Name</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon ff"><i
+                                            class="glyphicon glyphicon-user fa-5x "></i></span>
+                                    <input name="fname" class="form-control" type="text"
+                                        value="<?php echo $fetch_user['first_name'];   ?>" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row  justify-content-md-center mb-2">
-                        <label class="col-md-2 control-label">Last Name</label>
-                        <div class="col-md-4 inputGroupContainer">
-                            <div class="input-group">
-                                <span class="input-group-addon ff"><i
-                                        class="glyphicon glyphicon-user fa-5x "></i></span>
-                                <input name="lname" class="form-control" type="text"
-                                    value="<?php echo $fetch_user['last_name'];   ?>" required>
+                        <div class="row  justify-content-md-center mb-2">
+                            <label class="col-md-2 control-label">Last Name</label>
+                            <div class="col-md-4 inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon ff"><i
+                                            class="glyphicon glyphicon-user fa-5x "></i></span>
+                                    <input name="lname" class="form-control" type="text"
+                                        value="<?php echo $fetch_user['last_name'];   ?>" required>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    
 
 
-                    <div class="row mt-3">
-                        <!--Back-->
-                        <div class="col-6">
-                            <button type="submit" name="admin_profile" class="btn btn-success float-end"
-                                style="max-width:450px;">Save <i class="fa-solid fa-floppy-disk"></i></button>
+
+
+                        <div class="row mt-3">
+                            <!--Back-->
+                            <div class="col-6">
+                                <button type="submit" name="admin_profile" class="btn btn-success float-end"
+                                    style="max-width:450px;">Save <i class="fa-solid fa-floppy-disk"></i></button>
+                            </div>
+                            <div class="col-6">
+                                <a href="admin-profile.php"><span class="btn btn-danger mx-2">Back <i
+                                            class="fa-sharp fa-solid fa-arrow-left"></i></span></a>
+                            </div>
+
                         </div>
-                        <div class="col-2">
-                            <a href="admin-profile.php"><span class="btn btn-danger mx-2">Back <i
-                                        class="fa-sharp fa-solid fa-arrow-left"></i></span></a>
-                        </div>
-                        <!--Add button-->
 
                     </div>
-                    <!-- </ul> -->
                 </div>
+
         </div>
+    </div>
 
 
-        </form>
+    </form>
 
     </div>
 

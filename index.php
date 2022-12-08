@@ -15,7 +15,7 @@
 
   
   ?>
-  <?php
+<?php
   $gallery = "SELECT * FROM admin_gallery"; //You dont need like you do in SQL;
   $resultgallery = mysqli_query($con, $gallery);
 
@@ -295,12 +295,13 @@
         <section id="imagesection" class="div_background_light py-4">
             <div class="container-fluid px-5">
                 <div class="col-lg-12 col-md-12">
-                    <div style="width: 100%; height: 30px; border-bottom: 2px solid white; text-align: center">
-                        <span style="font-size: 35px; background-color:#9FBACD; color: white">
-                            QUICKTIPS
-                            <!--Padding is optional-->
-                        </span>
-                    </div>
+                    <!-- <div style="width: 100%; height: 30px; border-bottom: 2px solid white; text-align: center"> -->
+                        
+                        <h3 class="col-12  text-center"
+                            style="text-shadow: 3px 1px 3px  lightblue; color: rgb(13, 13, 103)">
+                            QUICKTIPS</h3>
+                        <hr>
+                    <!-- </div> -->
                     <div class=" row  mt-5 mb-5 ml-5" align="center">
                         <div class="col-md-2">
 
@@ -407,7 +408,7 @@
     </section>
 
     <section class="flex-sect" id="petgallery">
-        <section id="imagesection" class="div_background_light py-4">
+        <section id="" class=" py-4">
             <div class="container-fluid px-5 mt-3">
                 <div class="col-lg-12 col-md-12">
                     <div class="justify-content-center row col-md-12 rounded-3">
@@ -428,7 +429,7 @@
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title text-center">
                                     <?php echo $rowimage['Image_subtitle'] ?></h5>
-                               
+
                                 <!-- <p class="card-text d-inline-block text-truncate">
                                     <?php echo $rowimage['Image_body'];?>
                                 </p> -->
@@ -445,9 +446,6 @@
 
                     </div>
                 </div>
-            </div>
-            </div>
-            </div>
             </div>
 
 
@@ -510,22 +508,22 @@
     <footer class="footer-banner text-center" id="about">
         <h1 class="text-white" style="padding-top:20px;">PetCo. Animal Clinic</h1>
         <p class="text-white">Get in touch on our products and promos.</p>
-       
-                    <div class="col-12 text-center">
-                        <ul class="follow" style="color: white;">
-                            <a href="https://www.facebook.com/PetCoAnimalClinic"><span
-                                    class="fab fa-facebook text-white" style="font-size:30px;padding:10px;"></span></a>
-                            <a href="https://www.instagram.com//"><span class="fab fa-instagram text-white"
-                                    style="font-size:30px;padding:10px;"></span></a>
-                            <a href="https://www.twitter.com/"><span class="fab fa-twitter text-white"
-                                    style="font-size:30px;padding:10px;"></span></a>
+
+        <div class="col-12 text-center">
+            <ul class="follow" style="color: white;">
+                <a href="https://www.facebook.com/PetCoAnimalClinic"><span class="fab fa-facebook text-white"
+                        style="font-size:30px;padding:10px;"></span></a>
+                <a href="https://www.instagram.com//"><span class="fab fa-instagram text-white"
+                        style="font-size:30px;padding:10px;"></span></a>
+                <a href="https://www.twitter.com/"><span class="fab fa-twitter text-white"
+                        style="font-size:30px;padding:10px;"></span></a>
 
 
-                        </ul>
-                        <label class="text-white">© 2022 All Rights Reserved. PetCo. Animal Clinic.</label>
-                    </div>
-                </div>
-            </div>
+            </ul>
+            <label class="text-white">© 2022 All Rights Reserved. PetCo. Animal Clinic.</label>
+        </div>
+        </div>
+        </div>
     </footer>
 
 

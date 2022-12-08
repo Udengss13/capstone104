@@ -237,7 +237,7 @@
 <?php   
           if(isset($_GET['select_category'])){
            $filtervalues = $_GET['select_category']; 
-           $querysearchmenu = mysqli_query($con,"SELECT * FROM admin_menu WHERE CONCAT(Menu_id, Menu_name, Menu_price, Menu_category,Menu_filename) LIKE '%$filtervalues%' AND DATE(expiration)>NOW()"); //You dont need like you do in SQL;
+           $querysearchmenu = mysqli_query($con,"SELECT * FROM admin_menu WHERE CONCAT(Menu_id, Menu_name, Menu_price, Menu_category,Menu_filename) LIKE '%$filtervalues%' and stock_in !='0'"); //You dont need like you do in SQL;
                    
            if(mysqli_num_rows($querysearchmenu)>0 ){
                     ?>
@@ -317,7 +317,7 @@
 <?php   
                 if(isset($_GET['search'])){
                 $filtervalues = $_GET['search']; 
-                $querysearchmenu = mysqli_query($con,"SELECT * FROM admin_menu WHERE CONCAT(Menu_name, Menu_price, Menu_category) LIKE '%$filtervalues%' AND DATE(expiration)>NOW()"); //You dont need like you do in SQL;
+                $querysearchmenu = mysqli_query($con,"SELECT * FROM admin_menu WHERE CONCAT(Menu_name, Menu_price, Menu_category) LIKE '%$filtervalues%' and stock_in !='0'"); //You dont need like you do in SQL;
                         
                     if(mysqli_num_rows($querysearchmenu)>0 ){
                         ?>
@@ -428,14 +428,15 @@
                             <h6 class="card-text  text-dark mt-2 text-center">
                                 Php <?php echo $fetch_product['Menu_price']?>.00
                             </h6>
-                            <p class="card-text  text-dark mt-2 text-center">
-                                Available <?php echo $fetch_product['stock_in']?>
-                            </p>
+                            
                         </div>
                         <div class="col">
                             <input type="submit" name="add_to_cart" value="Add to Cart"
                                 class="btn btn-danger bg-button text w-90">
                         </div>
+                        <p class="card-text  text-dark mt-2 text-muted">
+                                Available <?php echo $fetch_product['stock_in']?>
+                            </p>
                     </div>
                 </div>
 

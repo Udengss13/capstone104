@@ -41,14 +41,11 @@ require('php/connection.php');
 
             <div class="row">
                 <div class="col profilebg ">
-                    <div class="row ">
+                    <div class="row mt-5">
                         <div class="col-5 ms-5">
                             <img src="asset/profiles/<?php echo $fetch_user['image_filename']?>"
                                 class="rounded-circle shadow user-profile" alt="Logo" style="width:50%; height:27vh" />
-                            <a href="admin-edit-profile.php?updateid=<?php echo $fetch_user['id'];?>">
-                                <span class="btn btn-danger bg-button mx-2 text-white">Edit
-                                    Profile <i class="fa-solid fa-pen-to-square "></i></span>
-                            </a>
+                          
                             <!-- <a href="admin-edit-profile.php?updateid=<?php echo $fetch_user['id'];?>">
                                 <span class="btn btn-danger bg-button mx-2 text-white">Edit
                                     Profile <i class="fa-solid fa-pen-to-square "></i></span>
@@ -59,9 +56,24 @@ require('php/connection.php');
                                         <h3 class="text-white mb-0 name">
                                             <?php echo $fetch_user['first_name']. " " .$fetch_user['last_name']; ?>
                                         </h3>
+                                        <p>Admin</p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-4">
+
+                        </div>
+                        <div class="col mt-3">
+                        <a href="admin-edit-profile.php?updateid=<?php echo $fetch_user['id'];?>">
+                                <span class="btn btn-outline-danger bg-light bg-button mx-2 text-dark">Edit
+                                    Profile <i class="fa-solid fa-pen-to-square "></i></span>
+                            </a>
+                            <br>
+                            <br>
+                            <a href="admin-changepass.php">
+                                <span class="btn btn-outline-success bg-light bg-button mx-2 text-dark">Change Password <i class="fa-solid fa-pen-to-square "></i></span>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -61,33 +61,34 @@
     <!-- <center><img src="asset/logopet.png" alt="Logo" style="position: absolute; z-index: -1;" /></center> -->
 
 
-    <h4 class="text-center c-white py-3 text-light">Archive </h4>
 
-    <form action=" " method="post" enctype="multipart/form-data" onsubmit="return verifyPassword()">
-        <div class="row justify-content-md-center mb-5 ">
-
-            <!-- <div class="col-lg-7 col-md-6 col-sm-12"> -->
-
-            <!-- <div class="card-header">
-                            Edit Information for Homepage
-                        </div> -->
-            <!--Success Message-->
-            <?php if($applychanges!=""){?>
-            <div class="alert alert-primary alert-dismissible fade show mt-3 mx-auto justify-content-md-center mb-2"
-                role="alert" style="width: 50%;">
-                <strong>Apply Changes Successfully!</strong> <?php echo $applychanges; ?>.
-            </div>
-            <?php } ?>
-            <!-- <ul class="list-group "> -->
-            <!--NAME-->
-            <!-- <div class="row justify-content-md-center mb-5">
+    <!-- <ul class="list-group "> -->
+    <!--NAME-->
+    <!-- <div class="row justify-content-md-center mb-5">
                     <div class="col-lg-12 col-md-6 col-sm-12">
                         <div class="card  justify-content-center"> -->
-            <div class="container ">
-                <div class="row justify-content-center">
+    <div class="container ">
+        <div class="row justify-content-center">
 
 
-                    <div class="col-7 bg-light p-4 shadow rounded" width="50">
+            <div class="col-7 bg-light p-4 shadow rounded" width="50">
+                <h4 class="text-center c-white py-3 text-dark">Archive </h4>
+
+                <form action=" " method="post" enctype="multipart/form-data" onsubmit="return verifyPassword()">
+                    <div class="row justify-content-md-center mb-5 ">
+
+                        <!-- <div class="col-lg-7 col-md-6 col-sm-12"> -->
+
+                        <!-- <div class="card-header">
+                        Edit Information for Homepage
+                    </div> -->
+                        <!--Success Message-->
+                        <?php if($applychanges!=""){?>
+                        <div class="alert alert-primary alert-dismissible fade show mt-3 mx-auto justify-content-md-center mb-2"
+                            role="alert" style="width: 50%;">
+                            <strong>Apply Changes Successfully!</strong> <?php echo $applychanges; ?>.
+                        </div>
+                        <?php } ?>
                         <div class="row justify-content-md-center mb-2">
 
                             <label class="col-md-2 control-label "></label>
@@ -145,7 +146,7 @@
                                         class="fa-solid fa-box-archive"></i></button>
                             </div>
                             <?php } ?>
-                            <div class="col-2">
+                            <div class="col-6">
                                 <a href="userprofile.php"><span class="btn btn-danger mx-2">Back <i
                                             class="fa-sharp fa-solid fa-arrow-left"></i></span></a>
                             </div>
@@ -154,9 +155,9 @@
                         </div>
                         <!-- </ul> -->
                     </div>
-                </div>
             </div>
         </div>
+    </div>
 </div>
 
 
