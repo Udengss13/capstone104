@@ -42,7 +42,7 @@
         <!--Search-->
         <div class="row">
             <div class="col-10">
-                <form action="admin-user-accounts.php" method="GET">
+                <!-- <form action="admin-user-accounts.php" method="GET">
                     <div class="input-group mx-auto" style="width: 450px;">
                         <span class="input-group-text">Search User</span>
                         <input type="text" required class="form-control" name="id" placeholder="User ID or Name.">
@@ -51,7 +51,7 @@
                                     class="bi bi-search c-white"></span></button>
                         </span>
                     </div>
-                </form>
+                </form> -->
             </div>
 
 
@@ -61,20 +61,20 @@
         </div>
 
     </div>
-    <div class="div_background_light">
-        <div class="table-responsive mt-4 mx-auto" style="width:95%;">
-            <table class="table mt-3 mb-5">
-                <thead class="table-dark">
+    <div class="card-body">
+    <div class="bg-light ">
+        <div class="p-4 mt-4 " style="width:100%;">
+            <table id="example" class="table-responsive table table-bordered table table-striped ">
+                <thead >
 
                     <th scope="col">Pet Name</th>
 
-                    <th scope="col">Petbreed</th>
+                    <th scope="col">Breed</th>
                     <th scope="col">pettype</th>
-                    <th scope="col">Pet Sex</th>
-                    <th scope="col">Pet birthday</th>
-                    <th scope="col">Pet Age</th>
-
-                    <!-- <th scope="col">Action</th> -->
+                    <th scope="col">Sex</th>
+                    <th scope="col">Birthday</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Owner</th>
                 </thead>
 
                 <tbody>
@@ -90,13 +90,13 @@
                             </td>
 
 
-                            <td class="col-sm-1 col-md-1 col-lg-2">
+                            <td class="col-sm-1 col-md-1 col-lg-1">
                                 <?php echo $row['petbreed']  ?>
                             </td>
-                            <td class="col-sm-1 col-md-1 col-lg-2">
+                            <td class="col-sm-1 col-md-1 col-lg-1">
                                 <?php echo $row['pettype']  ?>
                             </td>
-                            <td class="col-sm-1 col-md-1 col-lg-2">
+                            <td class="col-sm-1 col-md-1 col-lg-1">
                                 <?php echo $row['petsex']  ?>
                             </td>
                             <td class="col-sm-1 col-md-1 col-lg-2">
@@ -113,11 +113,25 @@
                             $diff = $today->diff($bday);
                             ?>
 
-                            <td>
+                            <td col-2>
                                 <?php printf(' %d years, %d month, %d days', $diff->y, $diff->m, $diff->d); ?>
                             </td>
 
-                         
+                            <?php $userquery = "SELECT first_name, last_name FROM usertable INNER JOIN pettable ON usertable.id = pettable.user_id 
+                            where pettable.archive_status='archive' and usertable.id=".$row['user_id'];;
+                            $resultuser = mysqli_query($con, $userquery); 
+
+                            if(mysqli_num_rows($resultuser) > 0){
+                            $fetch_user = mysqli_fetch_assoc($resultuser);
+                            }; ?>
+                            <td class="col-sm-1 col-md-1 col-lg-2">
+                                <?php echo $fetch_user['first_name']." ".$fetch_user['last_name']  ?>
+                            </td>
+
+
+
+
+
 
 
 
@@ -178,6 +192,15 @@
     integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
 </script>
 <script src="/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+});
+</script>
 </body>
 
 </html>

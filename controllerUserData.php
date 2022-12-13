@@ -333,8 +333,8 @@ $errors = array();
                 Hope you are doing well.
                 <br>
                 
-                As much as we want to cater to you our services, there are limited slots for our appointment. 
-                We appreciate your support of our business, you can change your schedule if you wanted to, and we will make sure to accommodate you on our working days. 
+                As much as we want to cater you to our services, there are limited slots for our appointment. 
+                We appreciate your support to our business, you can change your schedule if you wanted to, and we will make sure to accommodate you on our working days. 
                 Thank you for your understanding. 
                 <br><br>
 

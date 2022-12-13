@@ -5,11 +5,11 @@
         $title = $_POST['title'];
         $paragraph = $_POST['description'];
         $paragraph = nl2br($paragraph);      
-        $safe_input = mysqli_real_escape_string($db_admin_account,$paragraph);
+        $safe_input = mysqli_real_escape_string($con,$paragraph);
 
         $subinfo = $_POST['subinfo'];
         $subinfo = nl2br($subinfo);
-        $sub_input = mysqli_real_escape_string($db_admin_account,$subinfo);
+        $sub_input = mysqli_real_escape_string($con,$subinfo);
 
         $price = $_POST['price'];
         $category_name = $_POST['category_name'];

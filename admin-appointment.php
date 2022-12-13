@@ -54,7 +54,7 @@
                                     <tr>
                                         <th>Day</th>
                                         <th>Time</th>
-                                        <th>Service</th>
+                                        <!-- <th>Service</th> -->
                                         <th>Employee Name</th>
                                     </tr>
                                 </thead>
@@ -71,8 +71,8 @@
                                        ?>
                                 <tr>
                                     <td><?php echo $day_decode3; ?></td>
-                                    <td><?php echo date('h:i a',strtotime($rowmenu['time'])); ?></td>
-                                    <td><?php echo $rowmenu['service']; ?></td>
+                                    <!-- <td><?php echo date('h:i a',strtotime($rowmenu['time'])); ?></td> -->
+                                    <!-- <td><?php echo $rowmenu['service']; ?></td> -->
                                     <!-- <td><?php echo $rowmenu['employee_id']; ?></td> -->
 
                                     <?php $querymenu = "SELECT first_name, last_name FROM available_appointment INNER JOIN usertable
@@ -140,15 +140,15 @@
                             <br>
 
 
-                            <div class="form-group mb-3">
+                            <!-- <div class="form-group mb-3">
                                 <label>Time</label>
                                 <input class="form-control" type="time" required name="time-appointment" />
-                            </div>
+                            </div> -->
                             <?php 
                                 $queryservice = "SELECT * FROM `service`"; 
                                 $resultservices = mysqli_query($con, $queryservice);
                             ?>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>Service</label>
                                 <select class="form-control" required name="service">
                                     <option value="">Select Service</option>
@@ -158,7 +158,7 @@
                                     </option>
                                     <?php } ?>
                                 </select>
-                            </div>
+                            </div> -->
                             <br>
                             <?php 
                                 $queryservice = "SELECT * FROM `usertable` where user_level='employee'"; 
@@ -167,7 +167,7 @@
                             <div class="form-group">
                                 <label>Choose Employee</label>
                                 <select class="form-control" required name="employee">
-                                    <option value="">Select Service</option>
+                                    <option value="">Select employee</option>
                                     <?php while($row =  mysqli_fetch_array($resultservices)){ ?>
                                     <option value=" <?php echo $row['id'] ?>">
                                         <?php echo $row['first_name'].' '.$row['last_name'];  ?>
@@ -190,12 +190,12 @@
     <?php
             if(isset($_POST['submit-appointment'])){
                 // $date = $_POST['date-appointment'];
-                $time = $_POST['time-appointment'];
+                // $time = $_POST['time-appointment'];
                 $service = $_POST['service'];
                 $day = json_encode($_POST['day']);
                 $employee = $_POST['employee'];
 
-                $insertavailable = "INSERT INTO available_appointment ( `service`,`time`,`day`,`employee_id`) VALUES ('$service','$time','$day','$employee')";
+                $insertavailable = "INSERT INTO available_appointment ( `service`,`day`,`employee_id`) VALUES ('$service','$day','$employee')";
                 $run_query = mysqli_query($con, $insertavailable);
                 if($run_query){
                     echo "<script>window.open('admin-appointment.php','_self');</script>";

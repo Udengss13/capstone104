@@ -26,6 +26,9 @@ $userresult = mysqli_query($con, $queryimage);
 
                  $queryservice = "SELECT * FROM `service`"; //You don't need a ; like you do in SQL
                  $resultservices = mysqli_query($con, $queryservice);
+
+                 $queryemploy = "SELECT * FROM `available_appointment`"; //You don't need a ; like you do in SQL
+                 $resultemploy = mysqli_query($con, $queryemploy);
         
         
                  $select_pet = mysqli_query($con, "SELECT * FROM pettable WHERE user_id = '$user_id'");
@@ -41,6 +44,7 @@ $userresult = mysqli_query($con, $queryimage);
         $appno = uniqid('PETCO-');
         
 
+        $employ = mysqli_real_escape_string($con, $_POST['employ']);
         $service = mysqli_real_escape_string($con, $_POST['service']);
         $appointdate = date('Y-m-d', strtotime($_POST['appointdate']));
         $appointtime = date('h:i A', strtotime($_POST['appointtime']));
@@ -48,8 +52,8 @@ $userresult = mysqli_query($con, $queryimage);
         $email =mysqli_real_escape_string($con,$_POST['email']);
         
 
-            $sql = "INSERT INTO `client_appointment`( `service`, `appoint_no`, `appoint_date`, `appoint_time`, `petname`, `user_id`, `email`) 
-            VALUES ('$service','$appno','$appointdate','$appointtime','$petname','$user_id', '$email')";
+            $sql = "INSERT INTO `client_appointment`( `employee_id`,`service`, `appoint_no`, `appoint_date`, `appoint_time`, `petname`, `user_id`, `email`) 
+            VALUES ('$employ','$service','$appno','$appointdate','$appointtime','$petname','$user_id', '$email')";
            $run = mysqli_query($con,$sql);
 
             // if(mysqli_query($con, $sql)){
@@ -212,7 +216,7 @@ $userresult = mysqli_query($con, $queryimage);
                         <p class=""  style="background: #EA6D52; color:  #EA6D52">|</p>
                     </div>Pending
                     <div class="col-1 c-white ">
-                        <p class="bg-info text-info">|</p>
+                        <p  style="background: #27bcfd; color: #27bcfd">|</p>
                     </div>Approved
                     <div class="col-1 c-white ">
                         <p class="" style="background: #00d27a; color: #00d27a">|</p>
@@ -255,6 +259,27 @@ $userresult = mysqli_query($con, $queryimage);
                         <div class="justify-content-center">
 
                             <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-2"> <label>Employee: </label></div>
+                                        <div class="col-4">
+                                        <?php $querymenu = "SELECT first_name, employee_id, last_name FROM available_appointment INNER JOIN usertable
+                                        ON available_appointment.employee_id = usertable.id
+                                        WHERE usertable.id= employee_id ";
+                                        $result = mysqli_query($con, $querymenu);?>
+
+                                            <select class="form-select form-select-md" name="employ" required>
+                                                <option value="">Select Employee</option>
+                                                <?php while($row =  mysqli_fetch_array($result)){ ?>
+                                                <option value=" <?php echo $row['employee_id']; ?>">
+                                                    <?php echo $row['first_name']." ".$row['last_name']; ?>
+                                                </option>
+                                                <?php } ?>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </li>
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class="col-2"> <label>Service: </label></div>
@@ -305,7 +330,7 @@ $userresult = mysqli_query($con, $queryimage);
                                             <?php $select_pet = mysqli_query($con, "SELECT * FROM pettable WHERE user_id = '$user_id'");?>
 
 
-                                            <select name="petname">
+                                            <select name="petname" required>
                                                 <option value="" name="select_all">Select Pet</option>
                                                 <?php while($row =  mysqli_fetch_array($select_pet)){ ?>
                                                 <option value=" <?php echo $row['petname']; ?>">
@@ -394,6 +419,8 @@ $userresult = mysqli_query($con, $queryimage);
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
+
+        // Calendar Legend(color) "reservation_list.php"
     $(function() {
         $.post("reservation_list.php", function(data) {
             var reservation = JSON.parse(data);
@@ -436,10 +463,10 @@ $userresult = mysqli_query($con, $queryimage);
     $(document).ready(function() {
         $('#appointment-menu').addClass('bg-primary');
         $(document).on('change', 'input[name="appointdate"]', function() {
-            var service = $('select[name="service"]').val();
+            var employ = $('select[name="employ"]').val();
             var appointdate = $('input[name="appointdate"]').val();
             $.post("service_available_appointment.php", {
-                service: service,
+                employ: employ,
                 appointdate: appointdate
             }, function(data) {
                 if (data != 1) {

@@ -48,9 +48,9 @@
                                     <table class="table table-hover table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Day</th>
-                                                <th>Time</th>
-                                                <th>Service</th>
+                                                <th>Appointment Day</th>
+                                                <!-- <th>Time</th>
+                                                <th>Service</th> -->
                                                 
                                             </tr>
                                         </thead>
@@ -67,8 +67,8 @@
                                        ?>
                                         <tr>
                                             <td><?php echo $day_decode3; ?></td>
-                                            <td><?php echo date('h:i a',strtotime($rowmenu['time'])); ?></td>
-                                            <td><?php echo $rowmenu['service']; ?></td>
+                                            <!-- <td><?php echo date('h:i a',strtotime($rowmenu['time'])); ?></td>
+                                            <td><?php echo $rowmenu['service']; ?></td> -->
                                             <!-- <td><a class="btn btn-danger btn-sm delete" data-id="<?php echo $rowmenu['id']; ?>"><span class="fa fa-times"></span></a></td> -->
                                         </tr>
                                         <?php } ?>

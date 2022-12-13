@@ -3,7 +3,7 @@
     session_start();
     $user_id = $_SESSION['user_id'];
 
-    $querymenu = "SELECT * FROM client_appointment"; 
+    $querymenu = "SELECT * FROM client_appointment where employee_id='$user_id'"; 
     $resultmenu = mysqli_query($con, $querymenu);  
     $data = array();
     while($reserve = mysqli_fetch_assoc($resultmenu)){

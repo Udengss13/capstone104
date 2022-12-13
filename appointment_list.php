@@ -68,7 +68,7 @@
                                         </tr>
                                     </thead>
                                     <?php
-                                                    $query_pending = "SELECT c.*,CONCAT(u.first_name,' ',u.middle_name,' ',u.last_name,' ',u.suffix) AS customer_name FROM client_appointment c LEFT JOIN usertable u ON u.id = c.user_id WHERE c.status='pending' AND u.id is not null"; 
+                                                    $query_pending = "SELECT c.*,CONCAT(u.first_name,' ',u.middle_name,' ',u.last_name,' ',u.suffix) AS customer_name FROM client_appointment c LEFT JOIN usertable u ON u.id = c.user_id WHERE c.status='pending' AND u.id is not null and c.employee_id= $user_id"; 
                                                     $result_pending = mysqli_query($con, $query_pending);  
                                                     $count = 0;
                                                     while($row_pending =  mysqli_fetch_array($result_pending)){
@@ -112,7 +112,7 @@
                                         </tr>
                                     </thead>
                                     <?php
-                                                    $query_approved = "SELECT c.*,CONCAT(u.first_name,' ',u.middle_name,' ',u.last_name,' ',u.suffix) AS customer_name FROM client_appointment c LEFT JOIN usertable u ON u.id = c.user_id WHERE c.status='approved' AND u.id is not null"; 
+                                                    $query_approved = "SELECT c.*,CONCAT(u.first_name,' ',u.middle_name,' ',u.last_name,' ',u.suffix) AS customer_name FROM client_appointment c LEFT JOIN usertable u ON u.id = c.user_id WHERE c.status='approved' AND u.id is not null and c.employee_id= $user_id"; 
                                                     $result_approved = mysqli_query($con, $query_approved);  
                                                     $count1 = 0;
                                                     while($row_approved =  mysqli_fetch_array($result_approved)){
@@ -155,7 +155,7 @@
                                     </tr>
                                 </thead>
                                 <?php
-                                                    $query_serve = "SELECT c.*,CONCAT(u.first_name,' ',u.middle_name,' ',u.last_name,' ',u.suffix) AS customer_name FROM client_appointment c LEFT JOIN usertable u ON u.id = c.user_id WHERE c.status='served' AND u.id is not null"; 
+                                                    $query_serve = "SELECT c.*,CONCAT(u.first_name,' ',u.middle_name,' ',u.last_name,' ',u.suffix) AS customer_name FROM client_appointment c LEFT JOIN usertable u ON u.id = c.user_id WHERE c.status='served' AND u.id is not null and c.employee_id= $user_id"; 
                                                     $result_serve = mysqli_query($con, $query_serve);  
                                                     $count2 = 0;
                                                     while($row_serve =  mysqli_fetch_array($result_serve)){
@@ -189,7 +189,7 @@
                                         </tr>
                                     </thead>
                                     <?php
-                                                    $query_cancelled = "SELECT c.*,CONCAT(u.first_name,' ',u.middle_name,' ',u.last_name,' ',u.suffix) AS customer_name FROM client_appointment c LEFT JOIN usertable u ON u.id = c.user_id WHERE c.status='cancelled' AND u.id is not null"; 
+                                                    $query_cancelled = "SELECT c.*,CONCAT(u.first_name,' ',u.middle_name,' ',u.last_name,' ',u.suffix) AS customer_name FROM client_appointment c LEFT JOIN usertable u ON u.id = c.user_id WHERE c.status='cancelled' AND u.id is not null and c.employee_id= $user_id"; 
                                                     $result_cancelled = mysqli_query($con, $query_cancelled);  
                                                     $count3 = 0;
                                                     while($row_cancelled =  mysqli_fetch_array($result_cancelled)){
