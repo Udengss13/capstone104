@@ -138,10 +138,16 @@
                         <a class="nav-link text-white " id="product-menu" href="employee-menu.php">PRODUCTS</a>
                     </li>
                 </div>
-                <div class="text-nowrap">
+                <?php 
+                    $select_rows = mysqli_query($con,"SELECT * FROM `client_appointment` WHERE status = 'pending' and employee_id=$user_id") or die ('query failed');
+                    $row_count = mysqli_num_rows($select_rows);
+                  ?>
+                <div class="text-nowrap ">
                     <li class="nav-item">
                         <a class="nav-link text-white " id="list-appointment-menu"
-                            href="appointment_list.php">APPOINTMENT LIST</a>
+                            href="appointment_list.php">APPOINTMENT
+                            <?php if($row_count>0){ ?> <span
+                                class="badge badge-light mx-1 bg-danger text-light"><?php echo $row_count ?></span><?php } ?></a>
                     </li>
                 </div>
 

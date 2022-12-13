@@ -248,7 +248,12 @@
             </button>
         </div>
     </div>
-    <?php 
+    <!-- <section class="flex-sect" id="imagesec">
+        <section id="imagesection" class="div_background_light"> -->
+            <div class="container-fluid">
+                <div class="col-lg-12 col-md-12">
+                    <div class="justify-content-center row col-md-12 rounded-3">
+                        <?php 
          $query_service = "SELECT * FROM `service`"; 
          $result_service = mysqli_query($con, $query_service);  
          $count = 0;
@@ -262,14 +267,30 @@
             $querymenu = "SELECT * FROM quicktips WHERE category='$serv'"; 
             $resultmenu = mysqli_query($con, $querymenu);  
             $tab_option = '';
+
+            ?>
+
+                        <?php
            
-            while($rowmenu =  mysqli_fetch_array($resultmenu)){
-                $str = $rowmenu['link'];
-                $code = explode("?v=",$str);
-                $tab_option .= '<div class="col-md-4">
-                                    <iframe width="100%" class="shadow vid" height="500" src="https://www.youtube.com/embed/'.$code[1].'"></iframe>
-                                </div>';
-             }
+                            while($rowmenu =  mysqli_fetch_array($resultmenu)){
+                                $str = $rowmenu['link'];
+                                $code = explode("?v=",$str);
+                                
+                                $tab_option .= '
+                                <div class="col-lg-6 col-xs-1 col-sm-5 mx-auto ">
+                               
+                                                    <iframe width="100%" class="shadow vid" height="500" src="https://www.youtube.com/embed/'.$code[1].'"></iframe>
+                                                
+                                                </div>';
+                            }
+                            ?>
+
+                    </div>
+                </div>
+            </div>
+        <!-- </section>
+    </section> -->
+    <?php
             
             if($count==1){
                 $service_content .= '<a class="nav-link active" id="v-pills-'.$row_service['service_id'].'-tab" data-toggle="pill" href="#v-pills-'.$row_service['service_id'].'" role="tab" aria-controls="v-pills-home" aria-selected="true">'.$row_service['service_name'].'</a>';
@@ -296,17 +317,17 @@
             <div class="container-fluid px-5">
                 <div class="col-lg-12 col-md-12">
                     <!-- <div style="width: 100%; height: 30px; border-bottom: 2px solid white; text-align: center"> -->
-                        
-                        <h3 class="col-12  text-center"
-                            style="text-shadow: 3px 1px 3px  lightblue; color: rgb(13, 13, 103)">
-                            QUICKTIPS</h3>
-                        <hr>
+
+                    <h3 class="col-12  text-center"
+                        style="text-shadow: 3px 1px 3px  lightblue; color: rgb(13, 13, 103)">
+                        QUICKTIPS</h3>
+                    <hr>
                     <!-- </div> -->
                     <div class=" row  mt-5 mb-5 ml-5" align="center">
-                        <div class="col-md-2">
+                        <div class="col-1">
 
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-9 justify-content-center mx-auto">
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                 <?php echo $tab_content; ?>
                             </ul>

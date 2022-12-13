@@ -53,9 +53,10 @@
                                 <thead>
                                     <tr>
                                         <th>Day</th>
-                                        <th>Time</th>
+                                        <!-- <th>Time</th> -->
                                         <!-- <th>Service</th> -->
                                         <th>Employee Name</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <?php 
@@ -71,7 +72,7 @@
                                        ?>
                                 <tr>
                                     <td><?php echo $day_decode3; ?></td>
-                                    <!-- <td><?php echo date('h:i a',strtotime($rowmenu['time'])); ?></td> -->
+                                    <!-- ss<td><?php echo date('h:i a',strtotime($rowmenu['time'])); ?></td> -->
                                     <!-- <td><?php echo $rowmenu['service']; ?></td> -->
                                     <!-- <td><?php echo $rowmenu['employee_id']; ?></td> -->
 
@@ -106,22 +107,10 @@
                 </div>
                 <div class="modal-body">
                     <form id="add-form" method="POST">
-                        <!-- <div class="form-group mb-3">
-                                <label>Date</label>
-                                <input class="form-control" type="date" min="<?php //echo date('Y-m-d'); ?>" required name="date-appointment"/>
-                            </div> -->
+                     
                         <div class="form-group mb-3">
                             <label>Day</label><br>
-                            <!-- <select class="form-control" name="day[]" multiple="multiple" required>
-                                <option value="">Select Day</option>
-                                <option value="Monday">Monday</option>
-                                <option value="Tuesday">Tuesday</option>
-                                <option value="Wednesday">Wednesday</option>
-                                <option value="Thursday">Thursday</option>
-                                <option value="Friday">Friday</option>
-                                <option value="Saturday">Saturday</option>
-                                <option value="Sunday">Sunday</option>
-                            </select> -->
+                            
                             <div class="row">
                                 <div class="col">
                                     <input type="checkbox" name="day[]" value="Monday"> Monday<br>
@@ -140,10 +129,7 @@
                             <br>
 
 
-                            <!-- <div class="form-group mb-3">
-                                <label>Time</label>
-                                <input class="form-control" type="time" required name="time-appointment" />
-                            </div> -->
+                            
                             <?php 
                                 $queryservice = "SELECT * FROM `service`"; 
                                 $resultservices = mysqli_query($con, $queryservice);
