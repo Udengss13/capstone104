@@ -120,7 +120,8 @@
                                     </li>
                                     <li class="list-group-item">
                                         <label>Product Description:</label>
-                                        <textarea id="summernote" class="form-control" name="description"></textarea>
+                                        <textarea name="paragraph" style="height:100px;" required
+                                                class="col-12"></textarea>
                                     </li>
                                     <li class="list-group-item">
                                         <label>Price:</label>
@@ -252,23 +253,23 @@
                             <div class="col">
                                 <a class="text-decoration-none c-green update"
                                     data-id="<?php echo $rowmenu['Menu_id']; ?>">
-                                    <i class="fa-solid fa-pen" style="font-size:25px; padding: 10px"></i>
+                                    <span class="fa-solid fa-pen" data-bs-toggle="tooltip" title="Edit Product" style="font-size:25px; padding: 10px"></span>
                                 </a>
                                 <a class="text-decoration-none c-green add-stock"
                                     data-id="<?php echo $rowmenu['Menu_id']; ?>">
-                                    <i class="fa fa-plus" style="font-size:25px; padding: 10px"></i>
+                                    <span class="fa fa-plus" data-bs-toggle="tooltip" title="Add Stocks" style="font-size:25px; padding: 10px"></span>
                                 </a>
                                 <a href="php/menu-process.php?id=<?php echo $rowmenu['Menu_id'];?>">
-                                    <i class="fa-solid fa fa-archive" style="font-size:25px; color:red; padding: 10px"
-                                        onclick="return confirm('Are you sure you want to delete this product?')"></i>
+                                    <span class="fa-solid fa fa-archive" data-bs-toggle="tooltip" title="Archive" style="font-size:25px; color:red; padding: 10px"
+                                        onclick="return confirm('Are you sure you want to delete this product?')"></span>
                                 </a>
                                 <a class="text-decoration-none text-info list-stock"
                                     data-id="<?php echo $rowmenu['Menu_id']; ?>">
-                                    <i class="fa fa-list" style="font-size:25px; padding: 10px"></i>
+                                    <span class="fa fa-list" data-bs-toggle="tooltip" title="Stock Logs" style="font-size:25px; padding: 10px"></span>
                                 </a>
                                 <a class="btn btn-sm btn-danger text-decoration-none  deduct-stock"
                                     style="border-radius: 41px;" data-id="<?php echo $rowmenu['Menu_id']; ?>">
-                                    <i class="fa fa-minus" style="font-size:25px; padding: 10px"></i>
+                                    <span class="fa fa-minus" data-bs-toggle="tooltip" title="Deduct Logs" style="font-size:25px; padding: 10px"></span>
                                 </a>
                             </div>
 
@@ -305,7 +306,8 @@
                                     </li>
                                     <li class=" list-group-item">
                                         <label>Menu Description:</label>
-                                        <textarea id="usummernote" class="form-control" name="udescription"></textarea>
+                                        <textarea name="paragraph" style="height:100px;" required
+                                                class="col-12"></textarea>
                                     </li>
                                     <li class="list-group-item">
                                         <label>Price:</label>
@@ -487,41 +489,7 @@
                 $('#menu').DataTable();
             });
             </script>
-            <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-            <script>
-            $(document).ready(function(index) {
-                $('#summernote').summernote({
-                    height: 400
-                });
-                $(document).on('click', '.delete', function() {
-                    var id = $(this).data('id');
-                    console.log(id);
-                    $.post("employee-menu.php", {
-                        delete_submit: 'delte',
-                        id: id
-                    }, function(data) {
-                        location.reload();
-                    });
-                });
-                $('#usummernote').summernote({
-                    height: 400
-                });
-                $(document).on('click', '.update', function() {
-                    var id = $(this).data('id');
-                    $('input[name="service-id"]').val(id);
-                    $.post("service_data.php", {
-                        id: id
-                    }, function(data) {
-                        var new_data = JSON.parse(data);
-                        $('input[name="uname"]').val(new_data['service_name']);
-                        // $('textarea[name="udescription"]').val(new_data['description']);
-
-                        $("#usummernote").summernote("code", new_data['description']);
-                    });
-                    $('#update-modal').modal('show');
-                });
-            });
-            </script>
+            
             </body>
 
             </html>
