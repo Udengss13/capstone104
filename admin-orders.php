@@ -31,6 +31,8 @@ require('php/connection.php');
     <!-- tables -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 
@@ -40,7 +42,7 @@ require('php/connection.php');
     <div class="col-md-9 col-xl-10 py-3">
         <h3 class="text-center c-white py-3 mb-4">All Orders</h3>
 
-        <div class="row justify-content-center">
+        <!-- <div class="row justify-content-center">
             <div class="col-1 c-white">
                 <p class="bg-secondary text-secondary">|</p>
             </div>For Verification
@@ -56,104 +58,370 @@ require('php/connection.php');
             <div class="col-1 c-white">
                 <p class="bg-danger text-danger">|</p>
             </div>Cancelled
-        </div>
+        </div> -->
 
-        <!-- <div class="card"> -->
-        <div class="card-body bg-light p-4 m-2 rounded shadow">
-            <form action="" method="POST">
-                <table id="example" class="table table-striped table table-bordered" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Contact</th>
-                            <th>Order Date/time</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
+        <div class="container mt-3">
+            
+           
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#home">For Verification</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#menu1">Confirmed</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#menu2">For Pick Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#menu3">Picked Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#menu4">Cancelled</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div id="home" class="container tab-pane active"><br>
+
+                    <div class="card-body bg-light p-4 m-2 rounded shadow">
+                        <form action="" method="POST">
+                            <table id="example" class="table table-striped table table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Contact</th>
+                                        <th>Order Date/time</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
                                       $i = 1;
-                                      $order_query = mysqli_query($con, "SELECT * FROM `order` ORDER BY `order`.`orderdate` ASC " );
+                                      $order_query = mysqli_query($con, "SELECT * FROM `order` where order_status=''" );
                                       
                                       if(mysqli_num_rows($order_query) > 0){
                                         while($row = mysqli_fetch_assoc($order_query)){    
                                   ?>
 
-                        <tr>
+                                    <tr>
 
-                            <td><?php echo $row['first_name']." ".$row['last_name']  ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['address'] ?></td>
-                            <td><?php echo $row['contact'] ?></td>
-                            <td><?php echo date("Y-M-d h:i a",strtotime($row['orderdate']))?></td>
+                                        <td><?php echo $row['first_name']." ".$row['last_name']  ?></td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo $row['address'] ?></td>
+                                        <td><?php echo $row['contact'] ?></td>
+                                        <td><?php echo date("Y-M-d h:i a",strtotime($row['orderdate']))?></td>
 
-                            <?php if($row['order_status'] == 'confirmed'): ?>
-                            <td class="text-center">
 
-                                <span
-                                    class="badge badge-success bg-success text-white"><?php echo $row['order_status'] ?></span>
-                                <input type="hidden" value="<?php echo $row['order_status'] ?>" name="update_status">
-                                <!-- <td><?php echo $row['order_status'] ?></td> -->
-                            </td>
+                                        <td class="text-center">
 
-                            <?php elseif($row['order_status'] == 'pickup'): ?>
-                            <td class="text-center">
-                                <span
-                                    class="badge badge-success bg-warning text-white"><?php echo $row['order_status'] ?></span>
-                                <input type="hidden" value="<?php echo $row['order_status'] ?>" name="update_status">
-                                <input type="hidden" value="<?php echo $row['order_user_id'] ?>"
-                                    name="update_status_id">
-        </div>
-        </td>
-        <?php elseif($row['order_status'] == 'pickedup'): ?>
-        <td class="text-center col-sm-1 col-md-1 col-lg-1">
-            <div class="col">
-                <span class="badge badge-success bg-info text-dark"><?php echo $row['order_status'] ?></span>
-                <input type="hidden" value="<?php echo $row['order_status'] ?>" name="update_status">
-                <input type="hidden" value="<?php echo $row['order_user_id'] ?>" name="update_status_id">
-            </div>
-        </td>
+                                            <span class="badge badge-success bg-secondary text-black">For
+                                                verification</span>
+                                            <input type="hidden" value="<?php echo $row['order_status'] ?>"
+                                                name="update_status">
+                                            <input type="hidden" value="<?php echo $row['order_user_id'] ?>"
+                                                name="update_status_id">
+                                        </td>
+                                        <td class="col-sm-1 col-md-1 col-lg-1">
+                                            <?php if($row['order_status'] != 'cancelled'){ ?>
+                                            <div class="container btn btn-primary mt-3">
 
-        <?php elseif($row['order_status'] == 'cancelled'): ?>
+                                                <a class="btn btn primary  text-light"
+                                                    href='admin-view-orders.php?id=<?php echo $row["id"] ?>'>View
+                                                    Orders</a>
 
-        <td class="text-center col-sm-1 col-md-1 col-lg-1">
-            <div class="col">
-                <span class="badge badge-danger bg-danger text-light">Cancelled</span>
-                <input type="hidden" value="<?php echo $row['order_status'] ?>" name="update_status">
-                <input type="hidden" value="<?php echo $row['order_user_id'] ?>" name="update_status_id">
-            </div>
-        </td>
+                                            </div>
+                                            <?php } ?>
+                                        </td>
 
-        <?php else: ?>
-        <td class="text-center col-sm-1 col-md-1 col-lg-1 ">
-            <div class="col"><span class="badge badge-secondary bg-secondary text-light">For
-                    Verification<?php echo $row['order_status'] ?></span></div>
-        </td>
-        <?php endif; ?>
 
-        <td class="col-sm-1 col-md-1 col-lg-1">
-            <?php if($row['order_status'] != 'cancelled'){ ?>
-            <div class="container btn btn-primary mt-3">
 
-                <a class="btn btn primary  text-light" href='admin-view-orders.php?id=<?php echo $row["id"] ?>'>View
-                    Orders</a>
 
-            </div>
-            <?php } ?>
-        </td>
-        </tr>
+                                    </tr>
 
-        <?php
+                                    <?php
                                           };
                                         };
                                     ?>
-        </form>
-        </tbody>
-        </table>
-    </div>
+                        </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div id="menu1" class="container tab-pane fade"><br>
+                    <div class="card-body bg-light p-4 m-2 rounded shadow">
+                        <form action="" method="POST">
+                            <table id="confirm" class="table table-striped table table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Contact</th>
+                                        <th>Order Date/time</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                      $i = 1;
+                                      $order_query = mysqli_query($con, "SELECT * FROM `order` where order_status='confirmed' ORDER BY `order`.`orderdate` ASC " );
+                                      
+                                      if(mysqli_num_rows($order_query) > 0){
+                                        while($row = mysqli_fetch_assoc($order_query)){    
+                                  ?>
+
+                                    <tr>
+
+                                        <td><?php echo $row['first_name']." ".$row['last_name']  ?></td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo $row['address'] ?></td>
+                                        <td><?php echo $row['contact'] ?></td>
+                                        <td><?php echo date("Y-M-d h:i a",strtotime($row['orderdate']))?></td>
+
+
+                                        <td class="text-center">
+
+                                            <span
+                                                class="badge badge-success bg-success text-white"><?php echo $row['order_status'] ?></span>
+                                            <input type="hidden" value="<?php echo $row['order_status'] ?>"
+                                                name="update_status">
+                                            <input type="hidden" value="<?php echo $row['order_user_id'] ?>"
+                                                name="update_status_id">
+                                        </td>
+                                        <td class="col-sm-1 col-md-1 col-lg-1">
+                                            <?php if($row['order_status'] != 'cancelled'){ ?>
+                                            <div class="container btn btn-primary mt-3">
+
+                                                <a class="btn btn primary  text-light"
+                                                    href='admin-view-orders.php?id=<?php echo $row["id"] ?>'>View
+                                                    Orders</a>
+
+
+                                                <?php } ?>
+                                        </td>
+
+
+
+
+                                    </tr>
+
+                                    <?php
+                                          };
+                                        };
+                                    ?>
+                        </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu2" class="container tab-pane fade"><br>
+                    <div class="card-body bg-light p-4 m-2 rounded shadow">
+                        <form action="" method="POST">
+                            <table id="pickup" class="table table-striped table table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Contact</th>
+                                        <th>Order Date/time</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                      $i = 1;
+                                      $order_query = mysqli_query($con, "SELECT * FROM `order` where order_status='pickup' " );
+                                      
+                                      if(mysqli_num_rows($order_query) > 0){
+                                        while($row = mysqli_fetch_assoc($order_query)){    
+                                  ?>
+
+                                    <tr>
+
+                                        <td><?php echo $row['first_name']." ".$row['last_name']  ?></td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo $row['address'] ?></td>
+                                        <td><?php echo $row['contact'] ?></td>
+                                        <td><?php echo date("Y-M-d h:i a",strtotime($row['orderdate']))?></td>
+
+
+                                        <td class="text-center">
+                                        <td class="text-center">
+                                            <span
+                                                class="badge badge-success bg-warning text-white"><?php echo $row['order_status'] ?></span>
+                                            <input type="hidden" value="<?php echo $row['order_status'] ?>"
+                                                name="update_status">
+                                            <input type="hidden" value="<?php echo $row['order_user_id'] ?>"
+                                                name="update_status_id">
+                                        </td>
+                                        <td class="col-sm-1 col-md-1 col-lg-1">
+                                            <?php if($row['order_status'] != 'cancelled'){ ?>
+                                            <div class="container btn btn-primary mt-3">
+
+                                                <a class="btn btn primary  text-light"
+                                                    href='admin-view-orders.php?id=<?php echo $row["id"] ?>'>View
+                                                    Orders</a>
+
+
+                                                <?php } ?>
+                                        </td>
+
+
+
+
+                                    </tr>
+
+                                    <?php
+                                          };
+                                        };
+                                    ?>
+                        </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="menu3" class="container tab-pane fade"><br>
+                    <div class="card-body bg-light p-4 m-2 rounded shadow">
+                        <form action="" method="POST">
+                            <table id="pickedup" class="table table-striped table table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Contact</th>
+                                        <th>Order Date/time</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                      $i = 1;
+                                      $order_query = mysqli_query($con, "SELECT * FROM `order` where order_status='pickedup' " );
+                                      
+                                      if(mysqli_num_rows($order_query) > 0){
+                                        while($row = mysqli_fetch_assoc($order_query)){    
+                                  ?>
+
+                                    <tr>
+
+                                        <td><?php echo $row['first_name']." ".$row['last_name']  ?></td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo $row['address'] ?></td>
+                                        <td><?php echo $row['contact'] ?></td>
+                                        <td><?php echo date("Y-M-d h:i a",strtotime($row['orderdate']))?></td>
+
+
+                                        <td class="text-center">
+
+                                            <span
+                                                class="badge badge-success bg-info text-dark"><?php echo $row['order_status'] ?></span>
+                                            <input type="hidden" value="<?php echo $row['order_status'] ?>"
+                                                name="update_status">
+                                            <input type="hidden" value="<?php echo $row['order_user_id'] ?>"
+                                                name="update_status_id">
+                                        </td>
+                                        <td class="col-sm-1 col-md-1 col-lg-1">
+                                            <?php if($row['order_status'] != 'cancelled'){ ?>
+                                            <div class="container btn btn-primary mt-3">
+
+                                                <a class="btn btn primary  text-light"
+                                                    href='admin-view-orders.php?id=<?php echo $row["id"] ?>'>View
+                                                    Orders</a>
+
+
+                                                <?php } ?>
+                                        </td>
+
+
+
+
+                                    </tr>
+
+                                    <?php
+                                          };
+                                        };
+                                    ?>
+                        </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="menu4" class="container tab-pane fade"><br>
+                    <div class="card-body bg-light p-4 m-2 rounded shadow">
+                        <form action="" method="POST">
+                            <table id="cancel" class="table table-striped table table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Contact</th>
+                                        <th>Order Date/time</th>
+                                        <th>Status</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                      $i = 1;
+                                      $order_query = mysqli_query($con, "SELECT * FROM `order` where order_status='cancelled' " );
+                                      
+                                      if(mysqli_num_rows($order_query) > 0){
+                                        while($row = mysqli_fetch_assoc($order_query)){    
+                                  ?>
+
+                                    <tr>
+
+                                        <td><?php echo $row['first_name']." ".$row['last_name']  ?></td>
+                                        <td><?php echo $row['email']; ?></td>
+                                        <td><?php echo $row['address'] ?></td>
+                                        <td><?php echo $row['contact'] ?></td>
+                                        <td><?php echo date("Y-M-d h:i a",strtotime($row['orderdate']))?></td>
+
+
+                                        <td class="text-center">
+
+                                            <span
+                                                class="badge badge-success bg-info text-dark"><?php echo $row['order_status'] ?></span>
+                                            <input type="hidden" value="<?php echo $row['order_status'] ?>"
+                                                name="update_status">
+                                            <input type="hidden" value="<?php echo $row['order_user_id'] ?>"
+                                                name="update_status_id">
+                                        </td>
+                                        
+
+
+
+
+                                    </tr>
+
+                                    <?php
+                                          };
+                                        };
+                                    ?>
+                        </form>
+                        </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
     </div>
     </div>
@@ -174,6 +442,42 @@ require('php/connection.php');
     <script>
     $(document).ready(function() {
         $('#example').DataTable({
+            order: [
+                [5, 'desc']
+            ],
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('#confirm').DataTable({
+            order: [
+                [5, 'desc']
+            ],
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('#pickup').DataTable({
+            order: [
+                [5, 'desc']
+            ],
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('#pickedup').DataTable({
+            order: [
+                [5, 'desc']
+            ],
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $('#cancel').DataTable({
             order: [
                 [5, 'desc']
             ],

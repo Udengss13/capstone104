@@ -26,7 +26,7 @@ h3{
 .nav-item{
     font-family: 'Gothic A1', sans-serif;
     font-size: 15px;
-    text-shadow: 2px 2px 2px rgba(49, 44, 44, 0.767);
+    /* text-shadow: 2px 2px 2px rgba(49, 44, 44, 0.767); */
 }
 /* .nav-item:hover {
     
