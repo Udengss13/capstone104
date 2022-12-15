@@ -309,31 +309,20 @@
                     </a>
                     <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start"
                         id="menu">
-                        <li class="nav-item mb-2">
+                        <li class="nav-item " id="dashboard">
                             <a href="admin-dashboards.php" class="nav-link align-middle px-0">
                                 <i class="fs-4 bi-speedometer2"></i> <span
                                     class="ms-1 d-none d-sm-inline">Dashboard</span>
                             </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="admin-services.php" class="nav-link align-middle px-0">
-                                <i class="fs-4 fa fa-briefcase"></i> <span
-                                    class="ms-1 d-none d-sm-inline">Services</span>
-                            </a>
-                        </li> -->
-                        <!-- <li class="nav-item">
-                            <a href="quicktips_content.php" class="nav-link align-middle px-0">
-                                <i class="fs-4 	fa fa-file-video-o"></i> <span
-                                    class="ms-1 d-none d-sm-inline">Quicktips</span>
-                            </a>
-                        </li> -->
+                       
 
 
                         <?php 
                         $selectMessages = mysqli_query($con,"SELECT * FROM `messages` WHERE seen = 0 AND sender_id != 'petko'") or die ('query failed');
                         $count_message = mysqli_num_rows($selectMessages);
                         ?>
-                        <li>
+                        <li class="nav-item " id="message">
                             <a href="admin-message.php" class="nav-link px-sm-0 px-1">
                                 <i class="fs-4 fa-regular fa-message text-white"></i><span
                                     class="ms-1 d-none d-sm-inline">
@@ -344,7 +333,7 @@
                             </a>
                         </li>
 
-                        <li>
+                        <li class="nav-item " id="appoint">
 
 
                             <a class="nav-link px-sm-0 px-1" href="admin-appointment.php"><i
@@ -360,13 +349,10 @@
                             <a class="nav-link px-sm-0 px-1" href="admin-user-accounts.php"><i
                                     class="fs-4 fa-regular fa-user text-white"></i><span
                                     class="ms-1 d-none d-sm-inline"> User Accounts</a>
-                            <!-- <i class="fa-regular fa-user"></i> -->
+                           
 
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="#" class="nav-link px-sm-0 px-2">
-                                <i class="fs-4 bi-table"></i><span class="ms-1 d-none d-sm-inline">Sales</span></a>
-                        </li> -->
+                        
                         <li>
                             <a class="nav-link px-sm-0 px-1" href="archive-pet.php"><i
                                     class="fs-4 fa-regular fa-rectangle-list"></i><span class="ms-1 d-none d-sm-inline">
@@ -384,8 +370,8 @@
                             </ul> -->
                         </li>
 
-                        <li class="nav-item mb-2">
-                            <a href="admin-orders.php" class="nav-link px-sm-0 px-1">
+                        <li class="nav-item mb-2 w-100" id="bg">
+                            <a href="admin-orders.php"  class="nav-link px-sm-0 px-1 ">
                                 <i class="fs-4 bi-bag-check"></i><span class="ms-1 d-none d-sm-inline"> Orders</span>
                             </a>
                         </li>

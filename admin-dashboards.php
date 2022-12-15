@@ -443,6 +443,15 @@ $(document).ready(function() {
     $('#products').DataTable();
 });
 </script>
+<script>
+    $(document).ready(function() {
+        $('#dashboard').addClass('bg-primary');
+        $('#dashboard').addClass('ps-3');
+        $('#dashboard').addClass('rounded');
+        
+    });
+    </script>
+
 </body>
 
 </html>

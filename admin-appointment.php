@@ -35,13 +35,13 @@
     <!-- ====================================================================================================== -->
     <div class="col-md-9 col-xl-10 py-3">
         <div class="row mt-5">
-            <div class="col-md-12">
-                <div class="card">
+            <div class="col-md-12 ">
+                <div class="card shadow">
                     <div class="card-header row">
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             Available Appointment
                         </div>
-                        <div class="col-md-6" align="right">
+                        <div class="col-md-4" align="right">
                             <button class="btn btn-success btn-sm" type="button" data-bs-toggle="modal"
                                 data-bs-target="#add-modal"><span class="fa fa-plus"></span> Add Appointment
                                 Date</button>
@@ -53,8 +53,6 @@
                                 <thead>
                                     <tr>
                                         <th>Day</th>
-                                        <!-- <th>Time</th> -->
-                                        <!-- <th>Service</th> -->
                                         <th>Employee Name</th>
                                         <th>Action</th>
                                     </tr>
@@ -72,9 +70,7 @@
                                        ?>
                                 <tr>
                                     <td><?php echo $day_decode3; ?></td>
-                                    <!-- ss<td><?php echo date('h:i a',strtotime($rowmenu['time'])); ?></td> -->
-                                    <!-- <td><?php echo $rowmenu['service']; ?></td> -->
-                                    <!-- <td><?php echo $rowmenu['employee_id']; ?></td> -->
+                                    
 
                                     <?php $querymenu = "SELECT first_name, last_name FROM available_appointment INNER JOIN usertable
                                         ON available_appointment.employee_id = usertable.id
@@ -84,11 +80,15 @@
                                             $fetch_user = mysqli_fetch_assoc($result); 
                                             };  ?>
                                     <td><?php echo $fetch_user['first_name']." ".$fetch_user['last_name']; ?></td>
-                                    
+
 
                                     <td><a class="btn btn-danger btn-sm delete"
                                             data-id="<?php echo $rowmenu['id']; ?>"><span
-                                                class="fa fa-times"></span></a></td>
+                                                class="fa fa-times"></span></a>
+                                        <a class="btn btn-sm btn-success update"
+                                            data-id="<?php echo $rowmenu['id']; ?>"><span
+                                                class="fa fa-pencil text-white"></span></a>
+                                    </td>
                                 </tr>
                                 <?php } ?>
                             </table>
@@ -107,10 +107,10 @@
                 </div>
                 <div class="modal-body">
                     <form id="add-form" method="POST">
-                     
+
                         <div class="form-group mb-3">
                             <label>Day</label><br>
-                            
+
                             <div class="row">
                                 <div class="col">
                                     <input type="checkbox" name="day[]" value="Monday"> Monday<br>
@@ -129,22 +129,12 @@
                             <br>
 
 
-                            
+
                             <?php 
                                 $queryservice = "SELECT * FROM `service`"; 
                                 $resultservices = mysqli_query($con, $queryservice);
                             ?>
-                            <!-- <div class="form-group">
-                                <label>Service</label>
-                                <select class="form-control" required name="service">
-                                    <option value="">Select Service</option>
-                                    <?php while($row =  mysqli_fetch_array($resultservices)){ ?>
-                                    <option value=" <?php echo $row['service_name']; ?>">
-                                        <?php echo $row['service_name']; ?>
-                                    </option>
-                                    <?php } ?>
-                                </select>
-                            </div> -->
+
                             <br>
                             <?php 
                                 $queryservice = "SELECT * FROM `usertable` where user_level='employee'"; 
@@ -173,6 +163,45 @@
     </div>
     </div>
     </div>
+
+    <div id="update-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Service</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="update-form" method="POST">
+                        <div class="form-group mb-3">
+                            <label>Service</label>
+                            <div class="row">
+                                <input class="form-control" type="hidden" name="employee" />
+                                <div class="col">
+                                    <input type="checkbox" name="day[]" value="Monday"> Monday<br>
+                                    <input type="checkbox" name="day[]" value="Tuesday"> Tuesday<br>
+                                    <input type="checkbox" name="day[]" value="Wednesday"> Wednesday<br>
+                                    <input type="checkbox" name="day[]" value="Thursday"> Thursday<br>
+                                </div>
+
+
+                                <div class="col">
+                                    <input type="checkbox" name="day[]" value="Friday"> Friday<br>
+                                    <input type="checkbox" name="day[]" value="Saturday"> Saturday<br>
+                                    <input type="checkbox" name="day[]" value="Sunday"> Sunday<br>
+                                </div>
+                            </div>
+                            
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" name="update-submit"
+                        form="update-form">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php
             if(isset($_POST['submit-appointment'])){
                 // $date = $_POST['date-appointment'];
@@ -187,6 +216,20 @@
                     echo "<script>window.open('admin-appointment.php','_self');</script>";
                 }
             }
+            if(isset($_POST['update-submit'])){
+                
+                
+                $day = json_encode($_POST['day']);
+                $employee = $_POST['employee'];
+                // `service_name`='$name', `description`='$description' WHERE service_id = '$id'
+                // $id = $_POST['id'];
+                $insertavailable = "UPDATE available_appointment SET `day`=`$day` where id='$employee')";
+                $run_query = mysqli_query($con, $insertavailable);
+                if($run_query){
+                    echo "<script>window.open('admin-appointment.php','_self');</script>";
+                }
+            }
+
             if(isset($_POST['delete_btn'])){
                 $id = $_POST['id'];
                 $insertavailable = "DELETE FROM available_appointment WHERE id = '$id'";
@@ -243,6 +286,32 @@
             })
 
         });
+    });
+    </script>
+
+    <script>
+    $(document).ready(function() {
+        $('#appoint').addClass('bg-primary');
+        $('#appoint').addClass('ps-3');
+        $('#appoint').addClass('rounded');
+
+    });
+
+    $(document).on('click', '.update', function() {
+       
+        var id = $(this).data('id');
+        $('input[name="id"]').val(id);
+        $.post("appointment-data.php", {
+            id: id
+        }, function(data) {
+            var new_data = JSON.parse(data);
+            $('input[name="day[]"]').val(new_data['day[]']);
+            $('input[name="employee"]').val(new_data['employee_id']);
+
+
+
+        });
+        $('#update-modal').modal('show');
     });
     </script>
 

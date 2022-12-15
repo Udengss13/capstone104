@@ -269,6 +269,7 @@ $(document).ready(function(index) {
     $('#usummernote').summernote({
         height: 400
     });
+    
     $(document).on('click', '.update', function() {
         var id = $(this).data('id');
         $('input[name="service-id"]').val(id);

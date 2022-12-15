@@ -55,10 +55,10 @@
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                             aria-labelledby="nav-home-tab">
                             <div class="table-responsive mt-4">
-                                <table id="pending" class="table table-hover table-bordered" width="100%">
+                                <table id="pending" class="table table-hover table-bordered" width="98%">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            <!-- <th>#</th> -->
                                             <th>Ref. No.</th>
                                             <th>Date Schedule</th>
                                             <th>Customer Name</th>
@@ -75,7 +75,7 @@
                                                         $count++;
                                                 ?>
                                     <tr>
-                                        <td><?php echo $count; ?></td>
+                                        <!-- <td><?php echo $count; ?></td> -->
                                         <td><?php echo $row_pending['appoint_no']; ?></td>
                                         <td><?php echo date('F d,Y h:ia',strtotime($row_pending['appoint_date'].' '.$row_pending['appoint_time'])); ?>
                                         </td>

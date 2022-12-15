@@ -315,7 +315,7 @@
                     </a>
                     <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start"
                         id="menu">
-                        <li class="nav-item mb-2">
+                        <li class="nav-item">
                             <a href="admin-dashboards.php" class="nav-link align-middle px-0">
                                 <i class="fs-4 bi-speedometer2"></i> <span
                                     class="ms-1 d-none d-sm-inline">Dashboard</span>
@@ -339,7 +339,7 @@
                         $selectMessages = mysqli_query($con,"SELECT * FROM `messages` WHERE seen = 0 AND sender_id != 'petko'") or die ('query failed');
                         $count_message = mysqli_num_rows($selectMessages);
                         ?>
-                        <li>
+                        <li id="message">
                             <a href="admin-message.php" class="nav-link px-sm-0 px-1">
                                 <i class="fs-4 fa-regular fa-message text-white"></i><span
                                     class="ms-1 d-none d-sm-inline">
@@ -390,12 +390,12 @@
                             </ul> -->
                         </li>
 
-                        <li class="nav-item mb-2">
+                        <li class="nav-item ">
                             <a href="admin-orders.php" class="nav-link px-sm-0 px-1">
                                 <i class="fs-4 bi-bag-check"></i><span class="ms-1 d-none d-sm-inline"> Orders</span>
                             </a>
                         </li>
-                        <li class="dropdown mb-2">
+                        <li class="dropdown ">
                             <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fs-4 bi-pencil-square"></i><span class="ms-1 d-none d-sm-inline">
@@ -422,7 +422,7 @@
                                 <!-- <li><a class="dropdown-item" href="admin-quicktips.php">Quicktips</a></li> -->
                             </ul>
                         </li>
-                        <li class="nav-item mb-2">
+                        <li class="nav-item ">
                             <a href="admin-category-list.php" class="nav-link px-sm-0 px-1">
                                 <i class="fs-4 fa-solid fa-list-ul"></i><span class="ms-1 d-none d-sm-inline"> Product
                                     Category</span>
@@ -558,6 +558,14 @@
                 });
             });
             </script>
+             <script>
+    $(document).ready(function() {
+        $('#message').addClass('bg-primary');
+        $('#message').addClass('ps-3');
+        $('#message').addClass('rounded');
+        
+    });
+    </script>
 </body>
 
 </html>

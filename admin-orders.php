@@ -61,8 +61,8 @@ require('php/connection.php');
         </div> -->
 
         <div class="container mt-3">
-            
-           
+
+
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" data-bs-toggle="tab" href="#home">For Verification</a>
@@ -255,10 +255,10 @@ require('php/connection.php');
                                         <td><?php echo date("Y-M-d h:i a",strtotime($row['orderdate']))?></td>
 
 
-                                        <td class="text-center">
+                                       
                                         <td class="text-center">
                                             <span
-                                                class="badge badge-success bg-warning text-white"><?php echo $row['order_status'] ?></span>
+                                                class="badge badge-success bg-warning text-white">For Pick Up</span>
                                             <input type="hidden" value="<?php echo $row['order_status'] ?>"
                                                 name="update_status">
                                             <input type="hidden" value="<?php echo $row['order_user_id'] ?>"
@@ -371,7 +371,7 @@ require('php/connection.php');
                                         <th>Contact</th>
                                         <th>Order Date/time</th>
                                         <th>Status</th>
-                                        
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -395,13 +395,13 @@ require('php/connection.php');
                                         <td class="text-center">
 
                                             <span
-                                                class="badge badge-success bg-info text-dark"><?php echo $row['order_status'] ?></span>
+                                                class="badge badge-success bg-danger text-light"><?php echo $row['order_status'] ?></span>
                                             <input type="hidden" value="<?php echo $row['order_status'] ?>"
                                                 name="update_status">
                                             <input type="hidden" value="<?php echo $row['order_user_id'] ?>"
                                                 name="update_status_id">
                                         </td>
-                                        
+
 
 
 
@@ -438,7 +438,14 @@ require('php/connection.php');
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-
+    <script>
+    $(document).ready(function() {
+        $('#bg').addClass('bg-primary');
+        $('#bg').addClass('ps-3');
+        $('#bg').addClass('rounded');
+        
+    });
+    </script>
     <script>
     $(document).ready(function() {
         $('#example').DataTable({
