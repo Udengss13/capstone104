@@ -82,12 +82,12 @@
                                     <td><?php echo $fetch_user['first_name']." ".$fetch_user['last_name']; ?></td>
 
 
-                                    <td><a class="btn btn-danger btn-sm delete"
+                                    <td><a class="btn btn-danger btn-sm delete"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"
                                             data-id="<?php echo $rowmenu['id']; ?>"><span
                                                 class="fa fa-times"></span></a>
-                                        <a class="btn btn-sm btn-success update"
+                                        <!-- <a class="btn btn-sm btn-success update"
                                             data-id="<?php echo $rowmenu['id']; ?>"><span
-                                                class="fa fa-pencil text-white"></span></a>
+                                                class="fa fa-pencil text-white"></span></a> -->
                                     </td>
                                 </tr>
                                 <?php } ?>
@@ -168,14 +168,14 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Service</h5>
+                    <h5 class="modal-title">Update Appointment</h5>
                 </div>
                 <div class="modal-body">
                     <form id="update-form" method="POST">
                         <div class="form-group mb-3">
                             <label>Service</label>
                             <div class="row">
-                                <input class="form-control" type="hidden" name="employee" />
+                                <input class="form-control" type="hidden" name="id" />
                                 <div class="col">
                                     <input type="checkbox" name="day[]" value="Monday"> Monday<br>
                                     <input type="checkbox" name="day[]" value="Tuesday"> Tuesday<br>
@@ -223,10 +223,13 @@
                 $employee = $_POST['employee'];
                 // `service_name`='$name', `description`='$description' WHERE service_id = '$id'
                 // $id = $_POST['id'];
-                $insertavailable = "UPDATE available_appointment SET `day`=`$day` where id='$employee')";
+                $insertavailable = "UPDATE available_appointment SET `day`= '$day'  where employee_id='$employee')";
                 $run_query = mysqli_query($con, $insertavailable);
                 if($run_query){
                     echo "<script>window.open('admin-appointment.php','_self');</script>";
+                }
+                else{
+                    echo "mali";
                 }
             }
 
@@ -298,6 +301,10 @@
     });
 
     $(document).on('click', '.update', function() {
+        $('select[name="day[]"]').select2({
+            dropdownParent: $("#update-modal"),
+            width: "100%"
+        });
        
         var id = $(this).data('id');
         $('input[name="id"]').val(id);
@@ -314,6 +321,14 @@
         $('#update-modal').modal('show');
     });
     </script>
+
+<script>
+// Initialize tooltips
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+</script>
 
     </body>
 

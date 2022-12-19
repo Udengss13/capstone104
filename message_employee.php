@@ -1,5 +1,5 @@
 <?php 
-  require('layouts/header_employee.php');
+  require('layouts/header_emp.php');
     
    
     $user_id = $_SESSION['user_id'];
@@ -233,9 +233,9 @@
 
 
 
-    <div class="container mt-5">
+    <div class="container mt-5 ">
         <!-- ======================================= -->
-        <div class="messaging ">
+        <div class="messaging shadow">
             <div class="inbox_msg">
                 <div class="inbox_people">
                     <div class="headind_srch">

@@ -134,22 +134,28 @@
 
                         <div class="row mt-3">
                             <!--Back-->
-                            <?php if($rowimageEdit['archive_status']=='archive'){?>
-                            <div class="col-6">
+                            <div class="col-4">
 
                             </div>
-                            <?php } else{?>
-
+                           
+                            <?php if($rowimageEdit['archive_status']=='archive'){?>
                             <div class="col-6">
-                                <button type="submit" name="update_profile" class="btn btn-success float-end"
+                            <a href="userprofile.php"><span class="btn btn-danger mx-2">Back <i
+                                            class="fa-sharp fa-solid fa-arrow-left"></i></span></a>
+
+                            </div>
+
+                            <?php } else{?>
+                            
+                            <div class="col-6">
+                            <a href="userprofile.php"><span class="btn btn-danger mx-2">Back <i
+                                        class="fa-sharp fa-solid fa-arrow-left"></i></span></a>
+                                <button type="submit" name="update_profile" class="btn btn-success "
                                     style="max-width:450px;">Archive Pet <i
                                         class="fa-solid fa-box-archive"></i></button>
                             </div>
                             <?php } ?>
-                            <div class="col-6">
-                                <a href="userprofile.php"><span class="btn btn-danger mx-2">Back <i
-                                            class="fa-sharp fa-solid fa-arrow-left"></i></span></a>
-                            </div>
+
                             <!--Add button-->
 
                         </div>

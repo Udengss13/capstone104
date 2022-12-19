@@ -40,43 +40,27 @@ require('php/connection.php');
 
 
     <div class="col-md-9 col-xl-10 py-3">
-        <h3 class="text-center c-white py-3 mb-4">All Orders</h3>
+        <h3 class="text-center c-white  mb-4">All Orders</h3>
 
-        <!-- <div class="row justify-content-center">
-            <div class="col-1 c-white">
-                <p class="bg-secondary text-secondary">|</p>
-            </div>For Verification
-            <div class="col-1 c-white ">
-                <p class="bg-success text-success">|</p>
-            </div>Confirmed
-            <div class="col-1 c-white ">
-                <p class="bg-warning text-warning">|</p>
-            </div>For Pick Up
-            <div class="col-1 c-white">
-                <p class="bg-info text-info">|</p>
-            </div>Picked Up
-            <div class="col-1 c-white">
-                <p class="bg-danger text-danger">|</p>
-            </div>Cancelled
-        </div> -->
+       
 
         <div class="container mt-3">
 
 
             <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item">
+                <li class="nav-items">
                     <a class="nav-link active" data-bs-toggle="tab" href="#home">For Verification</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-items">
                     <a class="nav-link" data-bs-toggle="tab" href="#menu1">Confirmed</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-items">
                     <a class="nav-link" data-bs-toggle="tab" href="#menu2">For Pick Up</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-items">
                     <a class="nav-link" data-bs-toggle="tab" href="#menu3">Picked Up</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-items">
                     <a class="nav-link" data-bs-toggle="tab" href="#menu4">Cancelled</a>
                 </li>
             </ul>

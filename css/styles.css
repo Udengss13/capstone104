@@ -9,8 +9,8 @@ body{
   background:  #59809e5a;
 }
 .logo{
-  width:22%;
-  height:8vh;
+  width:23%;
+  height:9vh;
 }
 
 .navbar{
@@ -31,7 +31,7 @@ body{
   /* text-shadow: 2px 2px 2px rgba(49, 44, 44, 0.767); */
 }
 .nav-item:hover {
-  background-color: rgb(6, 126, 231);
+  /* background-color: rgb(6, 126, 231); */
   border-radius: 10px;
 }
 

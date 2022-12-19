@@ -395,7 +395,7 @@ $userresult = mysqli_query($con, $queryimage);
 
                     <h4 class="modal-title">Appointment Details</h4>
                 </div>
-                <div class="modal-body" id="details-content">
+                <div class="modal-body" id="details-content" onclick="return confirm('Are you sure you want to cancel the Appointment?')">
 
                 </div>
                 <div class="modal-footer">

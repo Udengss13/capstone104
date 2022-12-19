@@ -59,7 +59,7 @@
     </script>
 </head>
 
-<body>
+<body style=" background:  #9FBACD;">
     <!--Navigation Bar-->
     <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
@@ -313,7 +313,7 @@
 
     <!--QUICKTIPS-->
     <section class="flex-sect" id="imagesec">
-        <section id="imagesection" class="div_background_light py-4">
+        <section id="imagesection" class="py-4" >
             <div class="container-fluid px-5">
                 <div class="col-lg-12 col-md-12">
                     <!-- <div style="width: 100%; height: 30px; border-bottom: 2px solid white; text-align: center"> -->
@@ -324,11 +324,11 @@
                     <hr>
                     <!-- </div> -->
                     <div class=" row  mt-5 mb-5 ml-5" align="center">
-                        <div class="col-1">
+                        <div class="col-1 ">
 
                         </div>
-                        <div class="col-md-9 justify-content-center mx-auto">
-                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <div class="col-md-9 justify-content-center mx-auto bg-light rounded shadow">
+                            <ul class="nav nav-pills mb-3 mt-3 ms-5 text-dark" style="color:black" id="pills-tab" role="tablist">
                                 <?php echo $tab_content; ?>
                             </ul>
                         </div>
@@ -364,11 +364,11 @@
 
                         <?php while($rowimage = mysqli_fetch_array($resultimage)) {?>
 
-                        <div class="col-lg-3 col-xs-1 col-sm-5 card mx-3 my-4" style="height:350px;">
+                        <div class="col-lg-4 col-xs-1 col-sm-5 card mx-3 my-4" style="height:450px;">
 
 
                             <img src="asset/homepage/<?php echo $rowimage['Image_filename'] ?>"
-                                class="card-img-top pt-3 img-responsive " style="height:200px; width:100%;">
+                                class="card-img-top pt-3 img-responsive " style="height:250px; width:100%;">
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title text-center">
                                     <?php echo $rowimage['Image_title'] ?></h5>
@@ -399,25 +399,27 @@
 
         </section>
     </section>
-    <section id="sevice-content" class="mb-5" style="background-color:#fafafa4f;">
-        <section id="imagesection" class="div_background_light py-4">
-            <div class="justify-content-center row col-md-12 rounded-3 mb-5">
-                <div style="width: 100%; height: 30px; border-bottom: 2px solid white; text-align: center">
-                    <span style="font-size: 35px; background-color:#fafafa4f; color: black">
-                        SERVICES
-                    </span>
+
+    <section id="sevice-content" class="mb-3" >
+        <section id="imagesection" class=" py-4" style=" background:  #9FBACD;">
+            <div class="justify-content-center row col-md-12 rounded-3 mb-3">
+                <!-- <div style="width: 100%; height: 30px; border-bottom: 2px solid white; text-align: center"> -->
+                <h3 class="col-12  text-center"
+                            style="text-shadow: 3px 1px 3px  lightblue; color: rgb(13, 13, 103)">
+                           SERVICES</h3>
+                        <hr>
                 </div>
             </div>
             <div class="container-fluid px-5">
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                        <div class="nav flex-column nav-pills shadow text-dark bg-light p-2 rounded " id="v-pills-tab" role="tablist"
                             aria-orientation="vertical">
                             &emsp;<?php echo $service_content; ?>
                         </div>
                     </div>
-                    <div class="col-md-9">
-                        <div class="tab-content text-justify" id="v-pills-tabContent">
+                    <div class="col-md-9 shadow bg-light rounded">
+                        <div class="tab-content text-justify mt-4" id="v-pills-tabContent">
                             <?php echo $service_desc; ?>
                         </div>
                     </div>
@@ -428,9 +430,9 @@
         </section>
     </section>
 
-    <section class="flex-sect" id="petgallery">
-        <section id="" class=" py-4">
-            <div class="container-fluid px-5 mt-3">
+    <section class="flex-sect" id="petgallery" style=" background:  #9FBACD;">
+        <section id="" class=" py-4 " style=" background:  #9FBACD;">
+            <div class="container-fluid px-5 ">
                 <div class="col-lg-12 col-md-12">
                     <div class="justify-content-center row col-md-12 rounded-3">
                         <h3 class="col-12  text-center"

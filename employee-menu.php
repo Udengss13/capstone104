@@ -1,5 +1,5 @@
 <?php
-    require('layouts/header_employee.php');
+    require('layouts/header_emp.php');
 
    //call all Menu
   $querymenu = "SELECT * FROM admin_menu"; //You don't need a ; like you do in SQL
@@ -71,7 +71,7 @@
 
 <!--Content of Menu-->
 <div class="container-xl-fluid mt-5 mb-5">
-    <div class="px-3">
+    <div class="px-3 m-4">
         <h4 class="text-center c-white py-3">All Products</h4>
 
         <!-- Modal -->
@@ -269,7 +269,7 @@
                                 </a>
                                 <a class="btn btn-sm btn-danger text-decoration-none  deduct-stock"
                                     style="border-radius: 41px;" data-id="<?php echo $rowmenu['Menu_id']; ?>">
-                                    <span class="fa fa-minus" data-bs-toggle="tooltip" title="Deduct Logs" style="font-size:25px; padding: 10px"></span>
+                                    <span class="fa fa-minus" data-bs-toggle="tooltip" title="Deduct Logs" style="font-size:25px; padding: px"></span>
                                 </a>
                             </div>
 
